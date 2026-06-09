@@ -25,3 +25,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# build/test
+dist/
+coverage/
