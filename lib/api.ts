@@ -37,6 +37,9 @@ const defaultHeaders: Record<string, string> = {
   "Content-Type": "application/json",
 };
 
+// Base URL for API requests. Use NEXT_PUBLIC_API_URL in environment
+const BASE_URL = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/$/, "")
+
 const request = async <T = any>(
   url: string,
   init: RequestInit = {}
@@ -47,7 +50,13 @@ const request = async <T = any>(
   };
   if (authToken) headers["Authorization"] = authToken;
 
-  const response = await fetch(url, { ...init, headers });
+  const fullUrl = /https?:\/\//i.test(url)
+    ? url
+    : BASE_URL
+    ? `${BASE_URL}${url.startsWith("/") ? "" : "/"}${url}`
+    : url
+
+  const response = await fetch(fullUrl, { ...init, headers });
 
   const contentType = response.headers.get("content-type") || "";
   const isJson = contentType.includes("application/json");
