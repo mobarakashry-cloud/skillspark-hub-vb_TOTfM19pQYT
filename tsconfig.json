@@ -17,11 +17,7 @@
       {
         "name": "next"
       }
-    ],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"]
-    }
+    ]
   },
   "compileOnSave": false,
   "forceConsistentCasingInFileNames": true,
