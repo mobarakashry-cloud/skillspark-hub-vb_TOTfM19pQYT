@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import { Product } from '@/types/product';
 import HomeProductCard from './HomeProductCard';
