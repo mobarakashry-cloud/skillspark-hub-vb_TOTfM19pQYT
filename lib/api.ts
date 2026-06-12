@@ -37,8 +37,14 @@ const defaultHeaders: Record<string, string> = {
   "Content-Type": "application/json",
 };
 
-// Base URL for API requests. Use NEXT_PUBLIC_API_URL in environment
-const BASE_URL = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/$/, "")
+// Determine environment/runtime
+const IS_SERVER = typeof window === "undefined"
+
+// On server we can call the upstream API directly using API_SECRET
+const SERVER_BASE_URL = (process.env.BACKEND_URL || process.env.NEXT_PUBLIC_API_URL || "").replace(/\/$/, "")
+
+// On client, route through our internal proxy which injects the secret server-side
+const CLIENT_PROXY_BASE = "/api/proxy"
 
 const request = async <T = any>(
   url: string,
@@ -52,9 +58,16 @@ const request = async <T = any>(
 
   const fullUrl = /https?:\/\//i.test(url)
     ? url
-    : BASE_URL
-    ? `${BASE_URL}${url.startsWith("/") ? "" : "/"}${url}`
-    : url
+    : IS_SERVER
+    ? SERVER_BASE_URL
+      ? `${SERVER_BASE_URL}${url.startsWith("/") ? "" : "/"}${url}`
+      : url
+    : `${CLIENT_PROXY_BASE}${url.startsWith("/") ? "" : "/"}${url}`
+
+  // When running on server, if API_SECRET is available attach it as Authorization
+  if (IS_SERVER && process.env.API_SECRET && !headers["Authorization"]) {
+    headers["Authorization"] = `Bearer ${process.env.API_SECRET}`
+  }
 
   const response = await fetch(fullUrl, { ...init, headers });
 
