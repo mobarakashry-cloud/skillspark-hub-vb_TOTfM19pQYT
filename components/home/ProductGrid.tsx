@@ -21,7 +21,13 @@ export const ProductGrid: React.FC<Props> = ({ products, onView }) => {
     <section className="max-w-7xl mx-auto px-6 py-16">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {products.map(p => (
-          <HomeProductCard key={p.id} product={p} onView={onView} />
+          <div 
+            key={p.id} 
+            onClick={() => onView && onView(p)} 
+            className="cursor-pointer"
+          >
+            <HomeProductCard product={p} />
+          </div>
         ))}
       </div>
     </section>
