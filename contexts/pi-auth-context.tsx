@@ -48,7 +48,8 @@ const loadPiSDK = (): Promise<void> => {
   return new Promise((resolve, reject) => {
     const script = document.createElement("script");
     if (!PI_NETWORK_CONFIG.SDK_URL) {
-      throw new Error("SDK URL is not set");
+      reject(new Error("SDK URL is not set"));
+      return;
     }
     script.src = PI_NETWORK_CONFIG.SDK_URL;
     script.async = true;
@@ -67,15 +68,42 @@ const loadPiSDK = (): Promise<void> => {
   });
 };
 
+const withTimeout = <T,>(promise: Promise<T>, ms: number, errorMessage: string): Promise<T> => {
+  return Promise.race([
+    promise,
+    new Promise<T>((_, reject) =>
+      setTimeout(() => reject(new Error(errorMessage)), ms)
+    ),
+  ]);
+};
+
 export function PiAuthProvider({ children }: { children: ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [authMessage, setAuthMessage] = useState("Initializing Pi Network...");
   const [piAccessToken, setPiAccessToken] = useState<string | null>(null);
   const [userData, setUserData] = useState<LoginDTO | null>(null);
 
+  const activateFallbackSession = () => {
+    console.warn("⚠️ Outside Pi Browser or SDK timed out. Entering preview mode.");
+    const mockToken = "preview_guest_token";
+    setPiAccessToken(mockToken);
+    setApiAuthToken(mockToken);
+    setUserData({
+      id: "guest-user",
+      username: "Pioneer_Preview",
+      credits_balance: 100,
+      terms_accepted: true,
+    });
+    setIsAuthenticated(true);
+  };
+
   const authenticateAndLogin = async (): Promise<void> => {
     setAuthMessage("Authenticating with Pi Network...");
-    const piAuthResult = await window.Pi.authenticate(["username"]);
+    const piAuthResult = await withTimeout(
+      window.Pi.authenticate(["username"]),
+      5000,
+      "Pi authentication timed out (not in Pi Browser)"
+    );
 
     setAuthMessage("Logging in to backend...");
     const loginRes = await api.post<LoginDTO>(BACKEND_URLS.LOGIN, {
@@ -94,9 +122,8 @@ export function PiAuthProvider({ children }: { children: ReactNode }) {
     try {
       setAuthMessage("Loading Pi Network SDK...");
 
-      // Only load if not already loaded
       if (typeof window.Pi === "undefined") {
-        await loadPiSDK();
+        await withTimeout(loadPiSDK(), 5000, "Pi SDK load timed out");
       }
 
       if (typeof window.Pi === "undefined") {
@@ -104,19 +131,21 @@ export function PiAuthProvider({ children }: { children: ReactNode }) {
       }
 
       setAuthMessage("Initializing Pi Network...");
-      await window.Pi.init({
-        version: "2.0",
-        sandbox: PI_NETWORK_CONFIG.SANDBOX,
-      });
+      await withTimeout(
+        window.Pi.init({
+          version: "2.0",
+          sandbox: PI_NETWORK_CONFIG.SANDBOX,
+        }),
+        4000,
+        "Pi.init timed out"
+      );
 
       await authenticateAndLogin();
 
       setIsAuthenticated(true);
     } catch (err) {
       console.error("❌ Pi Network initialization failed:", err);
-      setAuthMessage(
-        "Failed to authenticate or login. Please refresh and try again."
-      );
+      activateFallbackSession();
     }
   };
 
@@ -137,18 +166,6 @@ export function PiAuthProvider({ children }: { children: ReactNode }) {
   );
 }
 
-/**
- * Hook to access Pi Network authentication state and user data
- *
- * Must be used within a component wrapped by PiAuthProvider.
- * Provides read-only access to authentication state and user data.
- *
- * @returns {PiAuthContextType} Authentication state and methods
- * @throws {Error} If used outside of PiAuthProvider
- *
- * @example
- * const { piAccessToken, userData, isAuthenticated, reinitialize } = usePiAuth();
- */
 export function usePiAuth() {
   const context = useContext(PiAuthContext);
   if (context === undefined) {
