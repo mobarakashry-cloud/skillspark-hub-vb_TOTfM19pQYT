@@ -1,0 +1,15 @@
+{
+  "id": "proc_152ff9414de7",
+  "command": "cd /opt/data && WEBPACK_THREAD_POOL_SIZE=1 NODE_OPTIONS=--max-old-space-size=2048 npx next build >/tmp/build2.log 2>&1; echo \"EXIT=$?\" >> /tmp/build2.log; tail -12 /tmp/build2.log",
+  "cwd": "/opt/data",
+  "task_id": "session:agent:main:local:dm:local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "owner_task_id": "local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "session_key": "agent:main:local:dm:local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "parent_session_id": "local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "started_at": 1794181146.7202215,
+  "exit_code": 0,
+  "completion_reason": "exited",
+  "termination_source": "",
+  "notify_on_complete": false,
+  "output": "npm notice run my-v0-project@0.1.0 npx\nnpm notice run 'next' build\n  ▲ Next.js 14.2.25\n  - Environments: .env\n\n   Creating an optimized production build ...\nNext.js build worker exited with code: null and signal: SIGBUS\nEXIT=1\n"
+}

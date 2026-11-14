@@ -1,0 +1,15 @@
+{
+  "id": "proc_20ee83c38d4d",
+  "command": "cd /opt/data && npm install --no-audit --no-fund >/tmp/npm-install2.log 2>&1; status=$?; echo \"npm_exit=$status\" >> /tmp/npm-install2.log; tail -12 /tmp/npm-install2.log",
+  "cwd": "/opt/data",
+  "task_id": "session:agent:main:local:dm:local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "owner_task_id": "local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "session_key": "agent:main:local:dm:local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "parent_session_id": "local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "started_at": 1794182314.4769,
+  "exit_code": 0,
+  "completion_reason": "exited",
+  "termination_source": "",
+  "notify_on_complete": false,
+  "output": "npm warn node_modules/react\nnpm warn   react@\"^18.2.0\" from the root project\nnpm warn   72 more (@floating-ui/react-dom, @radix-ui/react-accordion, ...)\nnpm warn\nnpm warn Could not resolve dependency:\nnpm warn peer react@\"^19.3.1\" from react-dom@19.3.1\nnpm warn node_modules/react-dom\nnpm warn   react-dom@\"^18.2.0\" from the root project\nnpm warn   46 more (@floating-ui/react-dom, @radix-ui/react-accordion, ...)\n\nchanged 34 packages in 3m\nnpm_exit=0\n"
+}

@@ -1,0 +1,2 @@
+connecting to ws://127.0.0.1:33555
+fatal: CDP WS handshake failed: [Errno 111] Connect call failed ('127.0.0.1', 33555) -- remote browser WebSocket connection failed. This can happen when network policy blocks the connection, the WS URL is wrong or expired, or the remote endpoint is down. If you use Browser Use cloud, verify auth and get a fresh URL via start_remote_daemon().

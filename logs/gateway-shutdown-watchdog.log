@@ -1,0 +1,284 @@
+{"event": "loop_liveness_watchdog_fired", "pid": 169, "delay_s": 30.0, "fired_at": "2026-11-09T01:55:15.707976+00:00", "snapshot": {"strikes": 3, "probe_interval_s": 30.0}}
+--- faulthandler dump (all threads) ---
+Thread 0x000073c911b396c0 [asyncio_7] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/concurrent/futures/thread.py", line 116 in _worker
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c91333c6c0 [hermes-lsp-loop] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/selectors.py", line 452 in select
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/base_events.py", line 2026 in _run_once
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/base_events.py", line 678 in run_forever
+  File "/opt/hermes/agent/lsp/manager.py", line 103 in _run_forever
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c912b3b6c0 [Thread-11 (_cle] (most recent call first):
+  File "/opt/hermes/tools/terminal_tool.py", line 895 in _cleanup_thread_worker
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c913b3d6c0 [asyncio_6] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/concurrent/futures/thread.py", line 116 in _worker
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c914b3f6c0 [browser-cleanup] (most recent call first):
+  File "/opt/hermes/tools/browser_session_lifecycle.py", line 347 in _janitor
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c91fedf6c0 [active-lease-io] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/concurrent/futures/thread.py", line 116 in _worker
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c917d436c0 [hermes-periodic] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 369 in wait
+  File "/opt/hermes/agent/periodic_scheduler.py", line 144 in _run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c9185446c0 [relay-scope-op_] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/concurrent/futures/thread.py", line 116 in _worker
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c921ae26c0 [hermes-gateway-] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/concurrent/futures/thread.py", line 116 in _worker
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c9210e16c0 [AnyIO worker th] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 369 in wait
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/queue.py", line 199 in get
+  File "/opt/hermes/.venv/lib/python3.14/site-packages/anyio/_backends/_asyncio.py", line 1089 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c9222e36c0 [hermes-gateway-] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/pathlib/__init__.py", line 632 in __new__
+  File "/opt/hermes/hermes_state_lockowners.py", line 123 in log_write_lock_holders
+  File "/opt/hermes/hermes_state.py", line 1094 in _execute_write
+  File "/opt/hermes/hermes_state.py", line 1135 in _write_sql
+  File "/opt/hermes/hermes_state_gateway.py", line 911 in register_backend_heartbeat
+  File "/opt/hermes/tui_gateway/session_reaper.py", line 470 in _refresh_backend_heartbeat
+  File "/opt/hermes/tui_gateway/session_reaper.py", line 497 in _loop
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c922ae46c0 [hermes-lease-wa] (most recent call first):
+  File "/opt/hermes/tui_gateway/methods_display_watch.py", line 173 in _loop
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c9232e56c0 [hermes-change-w] (most recent call first):
+  File "/opt/hermes/tools/skills_tool.py", line 58 in _dir_tree_signature
+  File "/opt/hermes/tools/skills_tool.py", line 74 in _dir_tree_signature
+  File "/opt/hermes/tools/skills_tool.py", line 74 in _dir_tree_signature
+  File "/opt/hermes/tools/skills_tool.py", line 84 in _skills_scan_signature
+  File "/opt/hermes/agent/skill_commands.py", line 623 in _skill_dirs_signature
+  File "/opt/hermes/agent/skill_commands.py", line 607 in published_scopes_signature
+  File "/opt/hermes/tui_gateway/change_watcher.py", line 371 in _skills_sig
+  File "/opt/hermes/tui_gateway/change_watcher.py", line 411 in _broadcast_watched_changes
+  File "/opt/hermes/tui_gateway/change_watcher.py", line 444 in _loop
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c923be66c0 [dashboard-clien] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/concurrent/futures/thread.py", line 116 in _worker
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c9247e76c0 [Thread-5 (_loop] (most recent call first):
+  File "/opt/hermes/hermes_cli/mem_trim.py", line 186 in trim_memory
+  File "/opt/hermes/hermes_cli/mem_trim.py", line 236 in trim_memory_when_idle
+  File "/opt/hermes/tui_gateway/session_reaper.py", line 284 in _reap_idle_sessions
+  File "/opt/hermes/tui_gateway/server.py", line 287 in _loop
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c925ee86c0 [asyncio_5] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/concurrent/futures/thread.py", line 116 in _worker
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c9267e96c0 [asyncio_4] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/concurrent/futures/thread.py", line 116 in _worker
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c9282ea6c0 [asyncio_3] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/concurrent/futures/thread.py", line 116 in _worker
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c928aeb6c0 [hosted-room-dri] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/contextlib.py", line 364 in __exit__
+  File "/opt/hermes/gateway/hosted_rooms.py", line 926 in list_rooms
+  File "/opt/hermes/tui_gateway/hosted_room_service.py", line 225 in bindings
+  File "/opt/hermes/gateway/session_hosted_service.py", line 100 in bindings
+  File "/opt/hermes/tui_gateway/hosted_room_driver.py", line 481 in _run_cycle
+  File "/opt/hermes/tui_gateway/hosted_room_driver.py", line 449 in _worker_loop
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c9292ec6c0 [gateway-houseke] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/pathlib/__init__.py", line 778 in read_bytes
+  File "/opt/hermes/tools/terminal_scope.py", line 144 in build_profile_terminal_scope
+  File "/opt/hermes/tools/terminal_scope.py", line 226 in prepare_profile_terminal_scope
+  File "/opt/hermes/tools/terminal_scope.py", line 235 in install_profile_terminal_scope
+  File "/opt/hermes/tools/terminal_scope.py", line 244 in install_and_reset_profile_terminal_scope
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/contextlib.py", line 141 in __enter__
+  File "/opt/hermes/gateway/run.py", line 1821 in _profile_runtime_scope
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/contextlib.py", line 141 in __enter__
+  File "/opt/hermes/gateway/run.py", line 4471 in _drain_restart_safe_cron_deliveries
+  File "/opt/hermes/gateway/run.py", line 4500 in <lambda>
+  File "/opt/hermes/gateway/run.py", line 4318 in _housekeeping_chore
+  File "/opt/hermes/gateway/run.py", line 4548 in _start_gateway_housekeeping
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c929aed6c0 [cron-scheduler] (most recent call first):
+  File "/opt/hermes/gateway/status_inline_source.py", line 141 in _bootstrap_entry
+  File "/opt/hermes/gateway/status_inline_source.py", line 159 in inline_bootstrap_argv
+  File "/opt/hermes/gateway/status.py", line 565 in _gateway_command_subcommand
+  File "/opt/hermes/gateway/status.py", line 655 in looks_like_gateway_runtime_command_line
+  File "/opt/hermes/gateway/status.py", line 766 in _record_matches_live_gateway_pid
+  File "/opt/hermes/gateway/status.py", line 2002 in get_running_pid
+  File "/opt/hermes/gateway/run.py", line 1692 in <lambda>
+  File "/opt/hermes/gateway/status.py", line 1411 in guarded
+  File "/opt/hermes/gateway/status.py", line 1418 in resolve_gateway_liveness
+  File "/opt/hermes/gateway/run.py", line 1690 in _cron_profile_gate
+  File "/opt/hermes/cron/scheduler_provider.py", line 613 in _start_multiplex
+  File "/opt/hermes/cron/scheduler_provider.py", line 459 in start
+  File "/opt/hermes/cron/scheduler_thread.py", line 34 in _run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c92abee6c0 [asyncio_2] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/concurrent/futures/thread.py", line 116 in _worker
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c92bcf06c0 [asyncio_1] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/concurrent/futures/thread.py", line 116 in _worker
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c93b2fe6c0 [hermes-gateway-] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/concurrent/futures/thread.py", line 116 in _worker
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Current thread 0x000073c92da576c0 [gateway-loop-li] (most recent call first):
+  File "/opt/hermes/gateway/shutdown_watchdog.py", line 252 in _write_watchdog_dump
+  File "/opt/hermes/gateway/shutdown_watchdog.py", line 133 in _watchdog
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c92ebfd6c0 [nous-auth-keepa] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/encodings/utf_8_sig.py", line 69 in _buffer_decode
+  File "<frozen codecs>", line 325 in decode
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/pathlib/__init__.py", line 788 in read_text
+  File "/opt/hermes/hermes_cli/auth.py", line 731 in _load_auth_store
+  File "/opt/hermes/hermes_cli/auth.py", line 939 in read_credential_pool
+  File "/opt/hermes/agent/credential_pool.py", line 2983 in load_pool
+  File "/opt/hermes/hermes_cli/nous_auth_keepalive.py", line 125 in _refresh_selected_pool_entry
+  File "/opt/hermes/hermes_cli/nous_auth_keepalive.py", line 160 in refresh_nous_auth_keepalive_once
+  File "/opt/hermes/hermes_cli/nous_auth_keepalive.py", line 201 in _keepalive_loop
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c92f3fe6c0 [nous-guest-hand] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 373 in wait
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 670 in wait
+  File "/opt/hermes/hermes_cli/guest_handoff.py", line 307 in _worker_loop
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c92fdff6c0 [planned-stop-wa] (most recent call first):
+  File "<frozen genericpath>", line 19 in exists
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/pathlib/__init__.py", line 671 in exists
+  File "/opt/hermes/gateway/run.py", line 4288 in _run_planned_stop_watcher
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c938cfd6c0 [asyncio_0] (most recent call first):
+  File "/opt/hermes/hermes_state_schema.py", line 778 in _reconcile_columns
+  File "/opt/hermes/hermes_state_schema.py", line 1387 in apply_declared_schema
+  File "/opt/hermes/hermes_state_schema.py", line 1403 in reconcile_state_schema
+  File "/opt/hermes/tools/async_delegation.py", line 155 in _initialize_schema
+  File "/opt/hermes/hermes_cli/sqlite_util.py", line 63 in open_db
+  File "/opt/hermes/tools/async_delegation.py", line 136 in _connect
+  File "/opt/hermes/tools/async_delegation.py", line 161 in _transaction
+  File "/opt/hermes/tools/async_delegation.py", line 519 in sweep_orphaned_completions
+  File "/opt/hermes/gateway/run_notifications.py", line 1636 in <lambda>
+  File "/opt/hermes/gateway/run_notifications.py", line 1638 in _sweep_orphaned_completion_ledgers
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/concurrent/futures/thread.py", line 73 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/concurrent/futures/thread.py", line 86 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/concurrent/futures/thread.py", line 119 in _worker
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c9420c36c0 [Thread-3 (_moni] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/logging/handlers.py", line 200 in shouldRollover
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/logging/handlers.py", line 79 in emit
+  File "/opt/hermes/hermes_logging.py", line 553 in emit
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/logging/__init__.py", line 1027 in handle
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/logging/handlers.py", line 1608 in handle
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/logging/handlers.py", line 1627 in _monitor
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c9430756c0 [gateway-runtime] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 369 in wait
+  File "/opt/hermes/gateway/status.py", line 127 in _run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1024 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x000073c943ae7780 [hermes] (most recent call first):
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/events.py", line 92 in _run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/base_events.py", line 2064 in _run_once
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/base_events.py", line 678 in run_forever
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/base_events.py", line 707 in run_until_complete
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py", line 128 in run
+  File "/opt/hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/asyncio/runners.py", line 205 in run
+  File "/opt/hermes/hermes_cli/gateway.py", line 4622 in run_gateway
+  File "/opt/hermes/hermes_cli/gateway.py", line 5046 in _cmd_run
+  File "/opt/hermes/hermes_cli/gateway.py", line 5669 in _gateway_command_inner
+  File "/opt/hermes/hermes_cli/gateway.py", line 4890 in gateway_command
+  File "/opt/hermes/hermes_cli/main.py", line 1797 in cmd_gateway
+  File "/opt/hermes/hermes_cli/main.py", line 3535 in main
+  File "<string>", line 1 in <module>
+--- end dump ---

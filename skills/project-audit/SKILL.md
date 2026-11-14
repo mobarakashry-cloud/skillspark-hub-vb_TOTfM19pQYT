@@ -1,0 +1,55 @@
+---
+name: project-audit
+description: "Audit a repo: source, Git, Docker, cleanup."
+version: 1.0.0
+author: Hermes Agent (Nous Research)
+license: MIT
+metadata:
+  hermes:
+    tags: [audit, repo, git, docker, cleanup]
+    related_skills: []
+---
+
+Audit a repository end to end and leave it cleaner: inventory source/config files, verify Git and Docker configurations, safely clean regenerable artifacts, and emit a concise verified report plus a task checklist.
+
+## When to Use
+- After a fresh clone or merged branch to confirm source files, dependency lockfiles, and deployment configs are healthy before starting work.
+- When the directory has grown cluttered with regenerable runtime artifacts (caches, logs, db locks) and a tidy-up is needed.
+- Before a hackathon or release milestone to produce a concise audit and a reusable next-step checklist.
+
+## Always-on rules
+
+Audit a repository end to end and leave it cleaner: inventory source/config files, verify Git and Docker configurations, safely clean regenerable artifacts, and emit a concise verified report plus a task checklist.
+
+## When to Use
+- After a fresh clone or merged branch to confirm source files, dependency lockfiles, and deployment configs are healthy before starting work.
+- When the directory has grown cluttered with regenerable runtime artifacts (caches, logs, db locks) and a tidy-up is needed.
+- Before a hackathon or release milestone to produce a concise audit and a reusable next-step checklist.
+
+## Always-on rules
+- Deliver only what the ask weighs: a one-line answer for a one-line question; a concise report for a finished multi-part job. No filler or restating the request.
+- Verify every claim with real tool output before presenting it; never substitute fabricated results.
+- Never delete credentials, secrets, the git object store (.git), or an active agent's runtime (home/, skills/, plugins/, memories/, and its SQLite databases).
+- Never commit secrets: .env, auth.json, shared/nous_auth.json must not be tracked.
+- Keep vs remove: use an explicit allowlist of keep paths and a post-delete keep-check; never bulk-delete a live workspace.
+
+## Procedure
+1. Inventory the tree. Walk /opt/data and separate source/config (app/, components/, contexts/, hooks/, lib/, types/, public/, styles/, package files, git, README, SOUL) from runtime tooling (skills/, plugins/, memories/, caches, logs, db files, sessions, cron/output).
+2. Read source in dependency order: configs first (package.json, Dockerfile, docker-compose.yml, tsconfig.json, next.config.mjs, vercel.json, components.json, .gitignore, .dockerignore, README.md, SOUL.md), then key implementation files in the order they load (app/layout.tsx -> app/page.tsx, lib/ -> contexts/ -> hooks/ -> components), then a representative sample of UI components.
+3. Verify Git: add safe.directory if ownership is dubious, then read status, branch, remotes, log, and merge state (any MERGE_HEAD = merge in progress, not committed). Identify staged vs unstaged changes and untracked files.
+4. Verify Docker: Dockerfile (base image, npm install flags, what COPY . . includes and what .dockerignore excludes), docker-compose.yml (ports, build, restart), dockerignore (excluded paths), and note run/build feasibility vs prerequisites (node_modules absent, etc.).
+5. Security/reachability pass: grep source and config for api keys, tokens, secrets, URLs; classify which are gitignored; flag server-side header forwarding and any secrets stored unencrypted.
+6. Clean safely: maintain an explicit allowlist of keep paths and delete only regenerable artifacts (cache/, logs/, sessions/, runtime/, backups/, db lock/journal files, *.lock files, ephemeral state files). Re-run the allowlist keep-check after deletion.
+7. Verify: confirm source files and credentials still exist and git status shows no unintended changes to tracked source.
+8. Emit: (a) a concise audit report - findings by category with a verdict, (b) a task checklist for the user's next milestone. State clearly what is verified and what is left open.
+
+## Pitfalls
+- /opt/data is a live agent workspace carrying an embedded Next.js app; bulk deletion removes agent runtime. Distinguish scaffolding (safe to remove) from runtime state (leave).
+- config.yaml here is the Hermes Agent CLI config, not an app config; .env and auth.json hold the LLM/portal secrets (auth.json is not gitignored where .env is).
+- `npm install --force` in a Dockerfile masks peer/version conflicts; prefer a clean install.
+- The API proxy injects API_SECRET server-side but forwards every inbound header; the backend must trust the proxy boundary.
+- The Pi auth flow fails offline (needs sdk.minepi.com + a running backend) and falls into the AuthLoadingScreen error loop.
+- A merge with MERGE_HEAD left staged+unstaged is not committed; commit or abort before any release.
+- Build memory limits: a Next.js production build on a 3.8GB WSL host fails every config with the worker exiting **SIGBUS** (out-of-memory), even with `WEBPACK_THREAD_POOL_SIZE=1` + `NODE_OPTIONS=--max-old-space-size=2048`. Reduce the thread pool, not the code: if it still SIGBUSs, the host is too small — push the build to CI or a bigger machine, and do not hand-tune settings as a durable workflow.
+- Dependency resolution: caret ranges auto-upgrade to the latest minor and can silently change third-party asset layout (geist `^1.3.1` → `1.7.2` dropped the mono `.woff2` and broke the build). Pin exact versions where a build depends on a third-party asset layout, and verify with a real `npm install` + `npm run build` pass.
+- `npm ci` vs `npm install`: `npm ci` requires the lockfile to exactly match `package.json`; after a `package.json` change (e.g. geist version), run `npm install`, then expect `npm run build` to use that version — do not `npm ci` in between.

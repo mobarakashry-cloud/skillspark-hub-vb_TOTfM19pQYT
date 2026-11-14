@@ -1,0 +1,69 @@
+=== shutdown diagnostic @ SIGTERM ===
+--- date ---
+2026-11-07T13:06:02Z
+--- ps (top 60 by cpu, comm only) ---
+    PID    PPID USER     %CPU %MEM STAT COMMAND
+    200     159 hermes   30.9  4.9 Ssl  hermes
+    316     314 hermes    3.3  0.0 R    ps
+      1       0 root      0.1  0.0 Ss   s6-svscan
+    318     314 hermes    0.0  0.0 S    head
+    317     314 hermes    0.0  0.0 S    bash
+    314     312 hermes    0.0  0.0 S    bash
+    312     200 hermes    0.0  0.0 Ss   timeout
+    305     302 root      0.0  0.0 S    s6-ftrigrd
+    302     296 root      0.0  0.0 S    s6-svlisten
+    296      20 root      0.0  0.0 S    s6-rc
+    162     161 hermes    0.0  0.0 Ss   s6-log
+    161     146 hermes    0.0  0.0 S    s6-supervise
+    159     146 hermes    0.0  0.0 S    s6-supervise
+    146      32 hermes    0.0  0.0 Ss   s6-svscan
+     40      34 root      0.0  0.0 Ss   s6-ipcserverd
+     34       1 root      0.0  0.0 S    s6-supervise
+     33       1 root      0.0  0.0 S    s6-supervise
+     32       1 root      0.0  0.0 S    s6-supervise
+     31       1 root      0.0  0.0 S    s6-supervise
+     30       1 root      0.0  0.0 S    s6-supervise
+     21      19 root      0.0  0.0 Ss   s6-log
+     20      18 root      0.0  0.0 Ss   s6-linux-init-s
+     19       1 root      0.0  0.0 S    s6-supervise
+     18       1 root      0.0  0.0 S    s6-supervise
+--- pstree of self ---
+--- loadavg ---
+3.50 3.01 3.47 3/524 322
+--- recent dmesg (oom/killed) ---
+=== end ===
+=== shutdown diagnostic @ SIGTERM ===
+--- date ---
+2026-11-08T20:46:51Z
+--- ps (top 60 by cpu, comm only) ---
+    PID    PPID USER     %CPU %MEM STAT COMMAND
+    303     169 hermes    0.0  0.0 Ds   s6-envdir
+    297     293 hermes    0.0  0.0 S    head
+    296     293 hermes    0.0  0.0 S    bash
+    295     293 hermes    0.0  0.0 R    ps
+    293     291 hermes    0.0  0.0 S    bash
+    291       1 hermes    0.0  0.0 Ss   timeout
+    284     281 root      0.0  0.0 S    s6-ftrigrd
+    281     275 root      0.0  0.0 S    s6-svlisten
+    275      19 root      0.0  0.0 S    s6-rc
+    197      16 hermes    0.0  0.0 S+   bash
+    172     170 hermes    0.0  0.0 Ss   s6-log
+    170     156 hermes    0.0  0.0 S    s6-supervise
+    169     156 hermes    0.0  0.0 S    s6-supervise
+    156      31 hermes    0.0  0.0 Ss   s6-svscan
+     39      33 root      0.0  0.0 Ss   s6-ipcserverd
+     33       1 root      0.0  0.0 S    s6-supervise
+     32       1 root      0.0  0.0 S    s6-supervise
+     31       1 root      0.0  0.0 S    s6-supervise
+     30       1 root      0.0  0.0 S    s6-supervise
+     29       1 root      0.0  0.0 S    s6-supervise
+     20      18 root      0.0  0.0 Ss   s6-log
+     19      17 root      0.0  0.0 Ss   s6-linux-init-s
+     18       1 root      0.0  0.0 S    s6-supervise
+     17       1 root      0.0  0.0 S    s6-supervise
+     16       1 root      0.0  0.0 Ss   rc.init
+      1       0 root      0.0  0.0 Ss   s6-svscan
+--- pstree of self ---
+--- loadavg ---
+5.32 3.62 2.33 1/527 313
+--- recent dmesg (oom/killed) ---

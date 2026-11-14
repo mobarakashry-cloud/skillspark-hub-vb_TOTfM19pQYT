@@ -1,0 +1,290 @@
+0 verbose cli /opt/hermes/tools/node-26.12.1-linux-x64/bin/node /usr/local/bin/npm
+1 info using npm@12.0.2
+2 info using node@v26.12.1
+3 silly config load:file:/opt/hermes/tools/npm-12.0.2-linux-x64/lib/node_modules/npm/npmrc
+4 silly config load:file:/opt/data/.npmrc
+5 silly config load:file:/opt/data/home/.npmrc
+6 silly config load:file:/opt/hermes/tools/node-26.12.1-linux-x64/etc/npmrc
+7 verbose title npm install
+8 verbose argv "install" "--legacy-peer-deps" "--no-audit" "--no-fund"
+9 verbose logfile logs-max:10 dir:/opt/data/home/.npm/_logs/2026-11-08T22_39_42_322Z-
+10 verbose logfile /opt/data/home/.npm/_logs/2026-11-08T22_39_42_322Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+12 silly logfile done cleaning log files
+13 silly packumentCache heap:2143813632 maxSize:535953408 maxEntrySize:267976704
+14 silly idealTree buildDeps
+15 silly fetch manifest next@14.2.25
+16 silly packumentCache full:https://registry.npmjs.org/next cache-miss
+17 http fetch GET 200 https://registry.npmjs.org/next 7687ms (cache revalidated)
+18 silly packumentCache full:https://registry.npmjs.org/next set size:31531573 disposed:false
+19 silly fetch manifest react@^19
+20 silly packumentCache full:https://registry.npmjs.org/react cache-miss
+21 http fetch GET 200 https://registry.npmjs.org/react 1163ms (cache revalidated)
+22 silly packumentCache full:https://registry.npmjs.org/react set size:7117214 disposed:false
+23 silly fetch manifest react-dom@^19
+24 silly packumentCache full:https://registry.npmjs.org/react-dom cache-miss
+25 http fetch GET 200 https://registry.npmjs.org/react-dom 1144ms (cache revalidated)
+26 silly packumentCache full:https://registry.npmjs.org/react-dom set size:9614900 disposed:false
+27 silly placeDep ROOT next@14.2.25 REPLACE for: my-v0-project@0.1.0 want: 14.2.25
+28 silly placeDep ROOT react@19.3.1 REPLACE for: my-v0-project@0.1.0 want: ^19
+29 silly placeDep ROOT react-dom@19.3.1 REPLACE for: my-v0-project@0.1.0 want: ^19
+30 silly fetch manifest busboy@1.6.0
+31 silly packumentCache full:https://registry.npmjs.org/busboy cache-miss
+32 silly fetch manifest @next/env@14.2.25
+33 silly packumentCache full:https://registry.npmjs.org/@next%2fenv cache-miss
+34 silly fetch manifest styled-jsx@5.1.1
+35 silly packumentCache full:https://registry.npmjs.org/styled-jsx cache-miss
+36 http fetch GET 200 https://registry.npmjs.org/busboy 521ms (cache revalidated)
+37 silly packumentCache full:https://registry.npmjs.org/busboy set size:78901 disposed:false
+38 silly fetch manifest @swc/helpers@0.5.5
+39 silly packumentCache full:https://registry.npmjs.org/@swc%2fhelpers cache-miss
+40 http fetch GET 200 https://registry.npmjs.org/styled-jsx 935ms (cache revalidated)
+41 silly packumentCache full:https://registry.npmjs.org/styled-jsx set size:436113 disposed:false
+42 silly fetch manifest @next/swc-darwin-x64@14.2.25
+43 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-darwin-x64 cache-miss
+44 http fetch GET 200 https://registry.npmjs.org/@swc%2fhelpers 1033ms (cache revalidated)
+45 silly packumentCache full:https://registry.npmjs.org/@swc%2fhelpers set size:799747 disposed:false
+46 silly fetch manifest @next/swc-darwin-arm64@14.2.25
+47 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-darwin-arm64 cache-miss
+48 http fetch GET 200 https://registry.npmjs.org/@next%2fenv 1868ms (cache revalidated)
+49 silly packumentCache full:https://registry.npmjs.org/@next%2fenv set size:7899213 disposed:false
+50 silly fetch manifest @next/swc-linux-x64-gnu@14.2.25
+51 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-linux-x64-gnu cache-miss
+52 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-darwin-x64 1803ms (cache revalidated)
+53 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-darwin-x64 set size:5748786 disposed:false
+54 silly fetch manifest @next/swc-linux-x64-musl@14.2.25
+55 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-linux-x64-musl cache-miss
+56 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-darwin-arm64 1807ms (cache revalidated)
+57 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-darwin-arm64 set size:5811252 disposed:false
+58 silly fetch manifest @next/swc-win32-x64-msvc@14.2.25
+59 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-win32-x64-msvc cache-miss
+60 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-linux-x64-gnu 1416ms (cache revalidated)
+61 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-linux-x64-gnu set size:5867535 disposed:false
+62 silly fetch manifest @next/swc-linux-arm64-gnu@14.2.25
+63 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-linux-arm64-gnu cache-miss
+64 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-linux-x64-musl 940ms (cache revalidated)
+65 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-linux-x64-musl set size:5623255 disposed:false
+66 silly fetch manifest @next/swc-win32-ia32-msvc@14.2.25
+67 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-win32-ia32-msvc cache-miss
+68 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-linux-arm64-gnu 517ms (cache revalidated)
+69 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-linux-arm64-gnu set size:5673851 disposed:false
+70 silly fetch manifest @next/swc-linux-arm64-musl@14.2.25
+71 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-linux-arm64-musl cache-miss
+72 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-win32-x64-msvc 833ms (cache revalidated)
+73 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-win32-x64-msvc set size:5837232 disposed:false
+74 silly fetch manifest @next/swc-win32-arm64-msvc@14.2.25
+75 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-win32-arm64-msvc cache-miss
+76 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-linux-arm64-musl 310ms (cache revalidated)
+77 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-linux-arm64-musl set size:5694314 disposed:false
+78 silly fetch manifest scheduler@^0.28.0
+79 silly packumentCache full:https://registry.npmjs.org/scheduler cache-miss
+80 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-win32-ia32-msvc 865ms (cache revalidated)
+81 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-win32-ia32-msvc set size:3201450 disposed:false
+82 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-win32-arm64-msvc 464ms (cache revalidated)
+83 silly packumentCache full:https://registry.npmjs.org/@next%2fswc-win32-arm64-msvc set size:5654283 disposed:false
+84 http fetch GET 200 https://registry.npmjs.org/scheduler 356ms (cache revalidated)
+85 silly packumentCache full:https://registry.npmjs.org/scheduler set size:5867220 disposed:false
+86 silly placeDep ROOT @next/env@14.2.25 OK for: next@14.2.25 want: 14.2.25
+87 silly placeDep ROOT @next/swc-darwin-arm64@14.2.25 OK for: next@14.2.25 want: 14.2.25
+88 silly placeDep ROOT @next/swc-darwin-x64@14.2.25 OK for: next@14.2.25 want: 14.2.25
+89 silly placeDep ROOT @next/swc-linux-arm64-gnu@14.2.25 OK for: next@14.2.25 want: 14.2.25
+90 silly placeDep ROOT @next/swc-linux-arm64-musl@14.2.25 OK for: next@14.2.25 want: 14.2.25
+91 silly placeDep ROOT @next/swc-linux-x64-gnu@14.2.25 OK for: next@14.2.25 want: 14.2.25
+92 silly placeDep ROOT @next/swc-linux-x64-musl@14.2.25 OK for: next@14.2.25 want: 14.2.25
+93 silly placeDep ROOT @next/swc-win32-arm64-msvc@14.2.25 OK for: next@14.2.25 want: 14.2.25
+94 silly placeDep ROOT @next/swc-win32-ia32-msvc@14.2.25 OK for: next@14.2.25 want: 14.2.25
+95 silly placeDep ROOT @next/swc-win32-x64-msvc@14.2.25 OK for: next@14.2.25 want: 14.2.25
+96 silly placeDep ROOT @swc/helpers@0.5.5 OK for: next@14.2.25 want: 0.5.5
+97 silly placeDep ROOT busboy@1.6.0 OK for: next@14.2.25 want: 1.6.0
+98 silly placeDep ROOT styled-jsx@5.1.1 OK for: next@14.2.25 want: 5.1.1
+99 silly fetch manifest @swc/counter@^0.1.3
+100 silly packumentCache full:https://registry.npmjs.org/@swc%2fcounter cache-miss
+101 silly fetch manifest streamsearch@^1.1.0
+102 silly packumentCache full:https://registry.npmjs.org/streamsearch cache-miss
+103 silly fetch manifest client-only@0.0.1
+104 silly packumentCache full:https://registry.npmjs.org/client-only cache-miss
+105 http fetch GET 200 https://registry.npmjs.org/client-only 249ms (cache revalidated)
+106 silly packumentCache full:https://registry.npmjs.org/client-only set size:2750 disposed:false
+107 http fetch GET 200 https://registry.npmjs.org/@swc%2fcounter 273ms (cache revalidated)
+108 silly packumentCache full:https://registry.npmjs.org/@swc%2fcounter set size:7199 disposed:false
+109 http fetch GET 200 https://registry.npmjs.org/streamsearch 274ms (cache revalidated)
+110 silly packumentCache full:https://registry.npmjs.org/streamsearch set size:27372 disposed:false
+111 silly placeDep ROOT @swc/counter@0.1.3 OK for: @swc/helpers@0.5.5 want: ^0.1.3
+112 silly placeDep ROOT streamsearch@1.1.0 OK for: busboy@1.6.0 want: ^1.1.0
+113 silly placeDep ROOT scheduler@0.28.0 OK for: react-dom@19.3.1 want: ^0.28.0
+114 silly placeDep ROOT client-only@0.0.1 OK for: styled-jsx@5.1.1 want: 0.0.1
+115 silly reify mark retired [
+115 silly reify   '/opt/data/node_modules/autoprefixer',
+115 silly reify   '/opt/data/node_modules/.bin/autoprefixer'
+115 silly reify ]
+116 silly reify mark retired [
+116 silly reify   '/opt/data/node_modules/baseline-browser-mapping',
+116 silly reify   '/opt/data/node_modules/.bin/baseline-browser-mapping'
+116 silly reify ]
+117 silly reify mark retired [ '/opt/data/node_modules/caniuse-lite' ]
+118 silly reify mark retired [
+118 silly reify   '/opt/data/node_modules/browserslist',
+118 silly reify   '/opt/data/node_modules/.bin/browserslist'
+118 silly reify ]
+119 silly reify mark retired [ '/opt/data/node_modules/busboy' ]
+120 silly reify mark retired [ '/opt/data/node_modules/date-fns' ]
+121 silly reify mark retired [ '/opt/data/node_modules/date-fns-jalali' ]
+122 silly reify mark retired [ '/opt/data/node_modules/jiti', '/opt/data/node_modules/.bin/jiti' ]
+123 silly reify mark retired [ '/opt/data/node_modules/lucide-react' ]
+124 silly reify mark retired [
+124 silly reify   '/opt/data/node_modules/loose-envify',
+124 silly reify   '/opt/data/node_modules/.bin/loose-envify'
+124 silly reify ]
+125 silly reify mark retired [
+125 silly reify   '/opt/data/node_modules/nanoid',
+125 silly reify   '/opt/data/node_modules/.bin/nanoid'
+125 silly reify ]
+126 silly reify mark retired [ '/opt/data/node_modules/next' ]
+127 silly reify mark retired [ '/opt/data/node_modules/react' ]
+128 silly reify mark retired [ '/opt/data/node_modules/react-dom' ]
+129 silly reify mark retired [ '/opt/data/node_modules/scheduler' ]
+130 silly reify mark retired [ '/opt/data/node_modules/streamsearch' ]
+131 silly reify mark retired [ '/opt/data/node_modules/styled-jsx' ]
+132 silly reify mark retired [
+132 silly reify   '/opt/data/node_modules/typescript',
+132 silly reify   '/opt/data/node_modules/.bin/tsc',
+132 silly reify   '/opt/data/node_modules/.bin/tsserver'
+132 silly reify ]
+133 silly reify mark retired [
+133 silly reify   '/opt/data/node_modules/update-browserslist-db',
+133 silly reify   '/opt/data/node_modules/.bin/update-browserslist-db'
+133 silly reify ]
+134 silly reify mark retired [ '/opt/data/node_modules/@next/swc-linux-x64-gnu' ]
+135 silly reify mark retired [ '/opt/data/node_modules/@next/env' ]
+136 silly reify mark retired [ '/opt/data/node_modules/@swc/counter' ]
+137 silly reify mark retired [ '/opt/data/node_modules/@swc/helpers' ]
+138 silly reify moves {
+138 silly reify   '/opt/data/node_modules/autoprefixer': '/opt/data/node_modules/.autoprefixer-pIowPK6a',
+138 silly reify   '/opt/data/node_modules/.bin/autoprefixer': '/opt/data/node_modules/.bin/.autoprefixer-EAdE50H3',
+138 silly reify   '/opt/data/node_modules/baseline-browser-mapping': '/opt/data/node_modules/.baseline-browser-mapping-8UZYKXO6',
+138 silly reify   '/opt/data/node_modules/.bin/baseline-browser-mapping': '/opt/data/node_modules/.bin/.baseline-browser-mapping-gE4hV0VZ',
+138 silly reify   '/opt/data/node_modules/caniuse-lite': '/opt/data/node_modules/.caniuse-lite-dNAHYgmm',
+138 silly reify   '/opt/data/node_modules/browserslist': '/opt/data/node_modules/.browserslist-G9Lf51Jc',
+138 silly reify   '/opt/data/node_modules/.bin/browserslist': '/opt/data/node_modules/.bin/.browserslist-8fRFLv4Y',
+138 silly reify   '/opt/data/node_modules/busboy': '/opt/data/node_modules/.busboy-0UU4BDpB',
+138 silly reify   '/opt/data/node_modules/date-fns': '/opt/data/node_modules/.date-fns-J0CbHfYf',
+138 silly reify   '/opt/data/node_modules/date-fns-jalali': '/opt/data/node_modules/.date-fns-jalali-Xz5Fi3X5',
+138 silly reify   '/opt/data/node_modules/jiti': '/opt/data/node_modules/.jiti-zPwdPo1O',
+138 silly reify   '/opt/data/node_modules/.bin/jiti': '/opt/data/node_modules/.bin/.jiti-uKtZkem7',
+138 silly reify   '/opt/data/node_modules/lucide-react': '/opt/data/node_modules/.lucide-react-moGCvupr',
+138 silly reify   '/opt/data/node_modules/loose-envify': '/opt/data/node_modules/.loose-envify-U5ZTo7Rs',
+138 silly reify   '/opt/data/node_modules/.bin/loose-envify': '/opt/data/node_modules/.bin/.loose-envify-ZqLEXTa1',
+138 silly reify   '/opt/data/node_modules/nanoid': '/opt/data/node_modules/.nanoid-UzbmGm4S',
+138 silly reify   '/opt/data/node_modules/.bin/nanoid': '/opt/data/node_modules/.bin/.nanoid-H457Et1i',
+138 silly reify   '/opt/data/node_modules/next': '/opt/data/node_modules/.next-BFbnuNIH',
+138 silly reify   '/opt/data/node_modules/react': '/opt/data/node_modules/.react-VhofBXlz',
+138 silly reify   '/opt/data/node_modules/react-dom': '/opt/data/node_modules/.react-dom-zvdGymZF',
+138 silly reify   '/opt/data/node_modules/scheduler': '/opt/data/node_modules/.scheduler-Dz1zib2s',
+138 silly reify   '/opt/data/node_modules/streamsearch': '/opt/data/node_modules/.streamsearch-MIwfDfiD',
+138 silly reify   '/opt/data/node_modules/styled-jsx': '/opt/data/node_modules/.styled-jsx-eSmbou86',
+138 silly reify   '/opt/data/node_modules/typescript': '/opt/data/node_modules/.typescript-zwIfy9uj',
+138 silly reify   '/opt/data/node_modules/.bin/tsc': '/opt/data/node_modules/.bin/.tsc-LPRzgjxj',
+138 silly reify   '/opt/data/node_modules/.bin/tsserver': '/opt/data/node_modules/.bin/.tsserver-4WsQzc0W',
+138 silly reify   '/opt/data/node_modules/update-browserslist-db': '/opt/data/node_modules/.update-browserslist-db-Wl0SdqLV',
+138 silly reify   '/opt/data/node_modules/.bin/update-browserslist-db': '/opt/data/node_modules/.bin/.update-browserslist-db-DhUvH8Ry',
+138 silly reify   '/opt/data/node_modules/@next/swc-linux-x64-gnu': '/opt/data/node_modules/@next/.swc-linux-x64-gnu-AFWvpkJK',
+138 silly reify   '/opt/data/node_modules/@next/env': '/opt/data/node_modules/@next/.env-zgygEwcZ',
+138 silly reify   '/opt/data/node_modules/@swc/counter': '/opt/data/node_modules/@swc/.counter-5D5cOmUv',
+138 silly reify   '/opt/data/node_modules/@swc/helpers': '/opt/data/node_modules/@swc/.helpers-PpZNO4hS'
+138 silly reify }
+139 silly packumentCache corgi:https://registry.npmjs.org/update-browserslist-db cache-miss
+140 http cache @swc/helpers@https://registry.npmjs.org/@swc/helpers/-/helpers-0.5.5.tgz 0ms (cache hit)
+141 silly packumentCache corgi:https://registry.npmjs.org/typescript cache-miss
+142 http cache @swc/counter@https://registry.npmjs.org/@swc/counter/-/counter-0.1.3.tgz 0ms (cache hit)
+143 http cache scheduler@https://registry.npmjs.org/scheduler/-/scheduler-0.28.0.tgz 0ms (cache hit)
+144 http cache styled-jsx@https://registry.npmjs.org/styled-jsx/-/styled-jsx-5.1.1.tgz 0ms (cache hit)
+145 http cache @next/swc-linux-x64-gnu@https://registry.npmjs.org/@next/swc-linux-x64-gnu/-/swc-linux-x64-gnu-14.2.25.tgz 0ms (cache hit)
+146 http cache @next/env@https://registry.npmjs.org/@next/env/-/env-14.2.25.tgz 0ms (cache hit)
+147 http cache streamsearch@https://registry.npmjs.org/streamsearch/-/streamsearch-1.1.0.tgz 0ms (cache hit)
+148 silly packumentCache corgi:https://registry.npmjs.org/nanoid cache-miss
+149 http cache react-dom@https://registry.npmjs.org/react-dom/-/react-dom-19.3.1.tgz 0ms (cache hit)
+150 http cache react@https://registry.npmjs.org/react/-/react-19.3.1.tgz 0ms (cache hit)
+151 http cache next@https://registry.npmjs.org/next/-/next-14.2.25.tgz 0ms (cache hit)
+152 silly packumentCache corgi:https://registry.npmjs.org/date-fns-jalali cache-miss
+153 silly packumentCache corgi:https://registry.npmjs.org/loose-envify cache-miss
+154 silly packumentCache corgi:https://registry.npmjs.org/jiti cache-miss
+155 http cache lucide-react@https://registry.npmjs.org/lucide-react/-/lucide-react-0.454.0.tgz 0ms (cache hit)
+156 http cache date-fns@https://registry.npmjs.org/date-fns/-/date-fns-4.1.0.tgz 0ms (cache hit)
+157 http cache busboy@https://registry.npmjs.org/busboy/-/busboy-1.6.0.tgz 0ms (cache hit)
+158 silly packumentCache corgi:https://registry.npmjs.org/browserslist cache-miss
+159 silly packumentCache corgi:https://registry.npmjs.org/caniuse-lite cache-miss
+160 silly packumentCache corgi:https://registry.npmjs.org/baseline-browser-mapping cache-miss
+161 silly packumentCache corgi:https://registry.npmjs.org/autoprefixer cache-miss
+162 silly packumentCache corgi:https://registry.npmjs.org/postcss cache-miss
+163 silly tarball no local data for @next/swc-linux-x64-gnu@https://registry.npmjs.org/@next/swc-linux-x64-gnu/-/swc-linux-x64-gnu-14.2.25.tgz. Extracting by manifest.
+164 silly tarball no local data for next@https://registry.npmjs.org/next/-/next-14.2.25.tgz. Extracting by manifest.
+165 silly tarball no local data for lucide-react@https://registry.npmjs.org/lucide-react/-/lucide-react-0.454.0.tgz. Extracting by manifest.
+166 silly tarball no local data for date-fns@https://registry.npmjs.org/date-fns/-/date-fns-4.1.0.tgz. Extracting by manifest.
+167 http fetch GET 200 https://registry.npmjs.org/loose-envify 4712ms (cache revalidated)
+168 silly packumentCache corgi:https://registry.npmjs.org/loose-envify set size:4759 disposed:false
+169 http fetch GET 200 https://registry.npmjs.org/browserslist 4882ms (cache revalidated)
+170 silly packumentCache corgi:https://registry.npmjs.org/browserslist set size:285509 disposed:false
+171 http fetch GET 200 https://registry.npmjs.org/nanoid 5159ms (cache revalidated)
+172 silly packumentCache corgi:https://registry.npmjs.org/nanoid set size:160846 disposed:false
+173 http fetch GET 200 https://registry.npmjs.org/baseline-browser-mapping 5301ms (cache revalidated)
+174 silly packumentCache corgi:https://registry.npmjs.org/baseline-browser-mapping set size:210462 disposed:false
+175 http fetch GET 200 https://registry.npmjs.org/jiti 5617ms (cache revalidated)
+176 silly packumentCache corgi:https://registry.npmjs.org/jiti set size:233973 disposed:false
+177 http fetch GET 200 https://registry.npmjs.org/postcss 5884ms (cache revalidated)
+178 silly packumentCache corgi:https://registry.npmjs.org/postcss set size:361662 disposed:false
+179 http fetch GET 200 https://registry.npmjs.org/caniuse-lite 7164ms (cache revalidated)
+180 silly packumentCache corgi:https://registry.npmjs.org/caniuse-lite set size:1225171 disposed:false
+181 http fetch GET 200 https://registry.npmjs.org/update-browserslist-db 9128ms (cache revalidated)
+182 silly packumentCache corgi:https://registry.npmjs.org/update-browserslist-db set size:40274 disposed:false
+183 http fetch GET 200 https://registry.npmjs.org/typescript 9333ms (cache revalidated)
+184 silly packumentCache corgi:https://registry.npmjs.org/typescript set size:8777238 disposed:false
+185 http fetch GET 200 https://registry.npmjs.org/date-fns-jalali 9722ms (cache revalidated)
+186 silly packumentCache corgi:https://registry.npmjs.org/date-fns-jalali set size:151513 disposed:false
+187 http fetch GET 200 https://registry.npmjs.org/autoprefixer 10073ms (cache revalidated)
+188 silly packumentCache corgi:https://registry.npmjs.org/autoprefixer set size:309084 disposed:false
+189 http cache https://registry.npmjs.org/browserslist/-/browserslist-4.28.2.tgz 11496ms (cache hit)
+190 http cache https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz 12041ms (cache hit)
+191 http cache https://registry.npmjs.org/nanoid/-/nanoid-3.3.12.tgz 11486ms (cache hit)
+192 http cache https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.10.35.tgz 11376ms (cache hit)
+193 http cache https://registry.npmjs.org/postcss/-/postcss-8.4.31.tgz 10822ms (cache hit)
+194 http cache https://registry.npmjs.org/jiti/-/jiti-2.7.0.tgz 11333ms (cache hit)
+195 http cache https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz 9291ms (cache hit)
+196 http cache https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.5.0.tgz 8819ms (cache hit)
+197 http cache https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz 9612ms (cache hit)
+198 http fetch GET 200 https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001797.tgz 219152ms (cache miss)
+199 http fetch GET 200 https://registry.npmjs.org/date-fns-jalali/-/date-fns-jalali-4.1.0-0.tgz 322798ms (cache miss)
+200 http fetch GET 200 https://registry.npmjs.org/@next/swc-linux-x64-gnu/-/swc-linux-x64-gnu-14.2.25.tgz 348120ms (cache miss)
+201 http fetch GET 200 https://registry.npmjs.org/lucide-react/-/lucide-react-0.454.0.tgz 566255ms (cache miss)
+202 http fetch GET 200 https://registry.npmjs.org/date-fns/-/date-fns-4.1.0.tgz 642251ms (cache miss)
+203 http fetch GET 200 https://registry.npmjs.org/next/-/next-14.2.25.tgz 1243692ms (cache miss)
+204 warn deprecated next@14.2.25: This version has a security vulnerability. Please upgrade to a patched version. See https://nextjs.org/blog/security-update-2025-12-11 for more details.
+205 silly CHANGE node_modules/@swc/helpers
+206 silly CHANGE node_modules/@swc/counter
+207 silly CHANGE node_modules/@next/env
+208 silly CHANGE node_modules/@next/swc-linux-x64-gnu
+209 silly CHANGE node_modules/update-browserslist-db
+210 silly CHANGE node_modules/typescript
+211 silly CHANGE node_modules/styled-jsx
+212 silly CHANGE node_modules/streamsearch
+213 silly CHANGE node_modules/scheduler
+214 silly CHANGE node_modules/react-dom
+215 silly CHANGE node_modules/react
+216 silly CHANGE node_modules/next
+217 silly ADD node_modules/next/node_modules/postcss
+218 silly CHANGE node_modules/nanoid
+219 silly CHANGE node_modules/loose-envify
+220 silly CHANGE node_modules/lucide-react
+221 silly CHANGE node_modules/jiti
+222 silly CHANGE node_modules/date-fns-jalali
+223 silly CHANGE node_modules/date-fns
+224 silly CHANGE node_modules/busboy
+225 silly CHANGE node_modules/browserslist
+226 silly CHANGE node_modules/caniuse-lite
+227 silly CHANGE node_modules/baseline-browser-mapping
+228 silly CHANGE node_modules/autoprefixer
+229 verbose cwd /opt/data
+230 verbose os Linux 6.18.54.1-microsoft-standard-WSL2
+231 verbose node v26.12.1
+232 verbose npm  v12.0.2
+233 verbose exit 0
+234 info ok

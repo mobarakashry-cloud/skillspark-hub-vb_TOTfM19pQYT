@@ -1,0 +1,15 @@
+{
+  "id": "proc_74b1b92c334c",
+  "command": "cd /opt/data && npm install --no-audit --no-fund 2>&1 | tail -25",
+  "cwd": "/opt/data",
+  "task_id": "session:agent:main:local:dm:local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "owner_task_id": "local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "session_key": "agent:main:local:dm:local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "parent_session_id": "local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "started_at": 1794176572.0034332,
+  "exit_code": 0,
+  "completion_reason": "exited",
+  "termination_source": "",
+  "notify_on_complete": true,
+  "output": "npm error code ERESOLVE\nnpm error ERESOLVE unable to resolve dependency tree\nnpm error\nnpm error While resolving: my-v0-project@0.1.0\nnpm error Found: react@19.3.1\nnpm error node_modules/react\nnpm error   react@\"^19\" from the root project\nnpm error\nnpm error Could not resolve dependency:\nnpm error peer react@\"^18.2.0\" from next@14.2.25\nnpm error node_modules/next\nnpm error   next@\"14.2.25\" from the root project\nnpm error\nnpm error Fix the upstream dependency conflict, or retry this command with --force or --legacy-peer-deps to accept an incorrect (and potentially broken) dependency resolution.\nnpm error\nnpm error\nnpm error For a full report see:\nnpm error /opt/data/home/.npm/_logs/2026-11-08T22_22_58_244Z-eresolve-report.txt\nnpm error A complete log of this run can be found in: /opt/data/home/.npm/_logs/2026-11-08T22_22_58_244Z-debug-0.log\n"
+}

@@ -1,0 +1,43 @@
+---
+name: code-restructuring
+description: "Split a monolith into feature components and a thin router."
+version: 1.0.0
+author: Hermes Agent (Nous Research)
+license: MIT
+metadata:
+  hermes:
+    tags: [code, restructuring, refactoring, organization]
+    related_skills: [project-audit]
+---
+
+# Code Restructuring
+
+Split a monolithic UI file (often a single `page.tsx` of 1000+ lines) into feature components, extract shared data models into a dedicated module, and thin router/page files so each tab/route is independently maintainable.
+
+## When to Use
+- A single file exceeds ~300–500 lines with multiple distinct tabs/views/routes.
+- The file hardcodes a large data structure that should live in a shared module.
+- The file's return JSX mixes tab routing, header, and view body (hard to maintain).
+- Preparing for a release, feature separation, or multi-owner ownership of a view.
+
+## Always-on rules
+- Keep the shared UI shell (layout + auth/shell components) untouched; extract, never duplicate.
+- Every extracted component receives only the pieces of state it renders as props — never whole-file state.
+- Extract the data model first: a data module (`app/lib/data.ts`) lets every view be a pure function of the data.
+- Verify with a real `npm run build` after restructuring; static import checks are necessary but not sufficient.
+
+## Procedure
+1. Identify the monolith(s) to split and the logical boundaries (tabs/routes/branches).
+2. Extract the data model into a new module (`app/lib/app-data.ts`) with a proper TS interface; remove the duplicate from the page file.
+3. Create one feature component file per boundary (`app/components/dashboard/Dashboard.tsx`, etc.).
+4. Thread state through props so the feature component declares exactly what it needs (balance, searchQuery, onSearch, showAI, onTogglePublish, onToggleBookmark).
+5. Rewrite the page file as a thin router: a single `return` with a `{tab === "x" ? <Feature/> : <Fallback/>}` switch plus the bottom nav; no view bodies inside it.
+6. Verify every `@/` alias resolves (static check), then rebuild.
+7. Run the real build: a clean `npm run build` is a hard gate, not a nice-to-have.
+
+## Pitfalls
+- Splitting a closure-scoped file means state that was captured by closures must be threaded as props; forget a handler and the feature silently does nothing.
+- Dynamic Tailwind classes (`bg-$color-50`) are template literals, so the compiler does NOT generate the full class map. If a color is ever a runtime value, move the full class map to a palette object, or the style silently degrades to plain.
+- `dir="rtl"` and Arabic content are intentional in this repo — keep RTL in `app/globals.css`; do not "fix" it during restructuring.
+- A feature that swaps to a sibling view (e.g. SectionView falling back to Dashboard) must import the sibling explicitly at the top of the file, or TypeScript reports a missing symbol.
+- The production `next build` worker can exit **SIGBUS** on a small machine; treat a clean `npm run build` as a hard gate and use a CI box or bigger machine for the final gate.

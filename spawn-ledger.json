@@ -1,0 +1,38 @@
+[
+  {
+    "pid": 274,
+    "create_time": 1794170973.04,
+    "purpose": "cli",
+    "install": "351f81cc0628",
+    "spawner_pid": null,
+    "spawner_create": null,
+    "registered_at": 1794171000.2750702,
+    "argv": "hermes",
+    "host": "",
+    "port": null,
+    "profile": "",
+    "hermes_home": "/opt/data",
+    "isolated": false,
+    "boot_start": 1238.04,
+    "spawner_boot": null,
+    "boot_id": "ff047148-3493-44cc-9fce-add08c880f0e"
+  },
+  {
+    "pid": 870,
+    "create_time": 1794173923.13,
+    "purpose": "browser-harness-daemon",
+    "install": "351f81cc0628",
+    "spawner_pid": 169,
+    "spawner_create": 1794170886.94,
+    "registered_at": 1794173930.2776756,
+    "argv": "/opt/hermes/.venv/bin/python -m browser_harness.daemon",
+    "host": "",
+    "port": null,
+    "profile": "",
+    "hermes_home": "",
+    "isolated": false,
+    "boot_start": 4190.13,
+    "spawner_boot": 1153.94,
+    "boot_id": "ff047148-3493-44cc-9fce-add08c880f0e"
+  }
+]

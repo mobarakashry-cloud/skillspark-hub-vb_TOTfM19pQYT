@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "identity": "2bd378ed1b8d6bf2192cb26e0a55ff3091e6bd19",
+  "bootstrappedAt": "2026-11-07T12:55:40+0000",
+  "results": {
+    "adopt_blessed_checkout": {
+      "ok": true,
+      "skipped": "not-a-checkout"
+    },
+    "migrate_config": {
+      "ok": true,
+      "skipped": "up-to-date"
+    },
+    "state_db_guard": {
+      "ok": true,
+      "skipped": "no-state-db"
+    },
+    "drop_live_plugin_catalog": {
+      "ok": true
+    },
+    "expose_cli": {
+      "ok": true,
+      "skipped": "bundle-owns-launchers"
+    }
+  }
+}

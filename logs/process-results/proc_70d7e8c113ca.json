@@ -1,0 +1,15 @@
+{
+  "id": "proc_70d7e8c113ca",
+  "command": "cd /opt/data && nohup npm install --legacy-peer-deps --no-audit --no-fund >/tmp/npm-install.log 2>&1 &\necho \"started pid $!\"; sleep 2; tail -2 /tmp/npm-install.log",
+  "cwd": "/opt/data",
+  "task_id": "session:agent:main:local:dm:local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "owner_task_id": "local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "session_key": "agent:main:local:dm:local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "parent_session_id": "local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "started_at": 1794177574.8344407,
+  "exit_code": 0,
+  "completion_reason": "exited",
+  "termination_source": "",
+  "notify_on_complete": false,
+  "output": "[1] 9657\nstarted pid 9657\n"
+}

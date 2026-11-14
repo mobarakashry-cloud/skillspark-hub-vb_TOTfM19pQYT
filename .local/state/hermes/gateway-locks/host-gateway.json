@@ -1,0 +1,16 @@
+{
+  "role": "gateway",
+  "home": "/opt/data",
+  "pid": 16133,
+  "createTime": 1794189577.23,
+  "startTime": 1728123,
+  "bootEpoch": "ff047148-3493-44cc-9fce-add08c880f0e:113398",
+  "host": "",
+  "port": null,
+  "protocolVersion": 1,
+  "tokenFingerprint": "",
+  "profiles": [
+    "default"
+  ],
+  "updatedAt": "2026-11-09T02:10:48.291581+00:00"
+}

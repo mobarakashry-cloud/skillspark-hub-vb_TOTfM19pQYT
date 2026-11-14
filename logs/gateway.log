@@ -1,0 +1,145 @@
+2026-11-07 13:05:43,002 INFO gateway.control_socket: Gateway control socket listening at /opt/data/gateway.sock
+2026-11-07 13:05:45,162 INFO gateway.run: Starting Hermes Gateway...
+2026-11-07 13:05:45,166 INFO gateway.run: Session storage: /opt/data/sessions
+2026-11-07 13:05:45,263 INFO gateway.run: Agent budget: max_iterations=500 (agent.max_turns from config.yaml, else the HERMES_MAX_ITERATIONS bridge)
+2026-11-07 13:05:45,263 INFO gateway.run: Secret redaction: ENABLED (tool output, logs, and chat responses are scrubbed before delivery)
+2026-11-07 13:05:53,423 INFO gateway.run: Connecting to api_server...
+2026-11-07 13:05:53,635 INFO gateway.platforms.api_server: [Api_Server] API server listening on http://127.0.0.1:8642 (model: hermes-agent)
+2026-11-07 13:05:54,088 INFO gateway.run: ✓ api_server connected
+2026-11-07 13:06:01,902 INFO gateway.run: Received SIGTERM — initiating shutdown
+2026-11-07 13:06:01,903 WARNING gateway.run: Shutdown context: signal=SIGTERM under_systemd=no parent_pid=159 parent_name=s6-supervise loadavg_1m=3.55
+2026-11-07 13:06:02,022 INFO gateway.run: Stopping gateway...
+2026-11-07 13:06:02,183 INFO gateway.run: Shutdown phase: notify_active_sessions done at +0.15s
+2026-11-07 13:06:02,187 INFO gateway.run: Shutdown phase: drain done at +0.16s (drain took 0.00s, timed_out=False, active_at_start=0, active_now=0, cron_at_start=0, cron_now=0, api_at_start=0, api_now=0, deferred_at_start=0, deferred_now=0)
+2026-11-07 13:06:04,168 INFO gateway.run: Gateway running with 1 platform(s)
+2026-11-07 13:06:04,279 INFO gateway.platforms.api_server: [Api_Server] API server stopped
+2026-11-07 13:06:04,279 INFO gateway.run: ✓ api_server disconnected (0.07s)
+2026-11-07 13:06:04,280 INFO gateway.run: Shutdown phase: all adapters disconnected at +2.25s
+2026-11-07 13:06:04,377 INFO gateway.run: Shutdown phase: final-cleanup tool kill done at +2.35s
+2026-11-07 13:06:04,378 INFO gateway.run: Shutdown phase: executor quiesced at +2.35s
+2026-11-07 13:06:04,390 INFO gateway.run: Shutdown phase: SessionDB close done at +2.36s
+2026-11-07 13:06:04,395 INFO gateway.run: Gateway stopped by an unexpected signal — persisting gateway_state=running so container_boot auto-starts on the next boot (issue #42675)
+2026-11-07 13:06:04,398 INFO gateway.run: Channel directory built: 0 target(s)
+2026-11-07 13:06:04,623 INFO gateway.run: Gateway stopped (total teardown 2.59s)
+2026-11-07 13:06:07,385 INFO gateway.run: Model context warmed: anthropic/claude-opus-4.6 -> 1000000 tokens (detected)
+2026-11-07 13:06:07,386 INFO gateway.run: Turn machinery warmed in 14.0s (20 tool schema(s) materialized)
+2026-11-07 13:06:07,526 INFO gateway.run: Press Ctrl+C to stop
+2026-11-07 13:06:07,560 INFO gateway.run: kanban dispatcher: holding singleton dispatcher lock (/opt/data/kanban/.dispatcher.lock)
+2026-11-07 13:06:07,562 INFO gateway.run: kanban dispatcher: kanban.max_in_progress unset; using memory-derived default max_in_progress=7 (set kanban.max_in_progress in config.yaml to override)
+2026-11-07 13:06:07,605 INFO gateway.run: Exiting with code 1 (signal-initiated shutdown without restart request) so the service manager can revive the gateway.
+2026-11-07 13:07:22,669 INFO gateway.control_socket: Gateway control socket listening at /opt/data/gateway.sock
+2026-11-07 13:07:24,282 INFO gateway.run: Starting Hermes Gateway...
+2026-11-07 13:07:24,286 INFO gateway.run: Session storage: /opt/data/sessions
+2026-11-07 13:07:24,305 INFO gateway.run: Agent budget: max_iterations=500 (agent.max_turns from config.yaml, else the HERMES_MAX_ITERATIONS bridge)
+2026-11-07 13:07:24,306 INFO gateway.run: Secret redaction: ENABLED (tool output, logs, and chat responses are scrubbed before delivery)
+2026-11-07 13:07:24,764 INFO gateway.run: Previous gateway exited cleanly — skipping session suspension
+2026-11-07 13:07:25,569 INFO gateway.run: Connecting to api_server...
+2026-11-07 13:07:25,611 INFO gateway.platforms.api_server: [Api_Server] API server listening on http://127.0.0.1:8642 (model: hermes-agent)
+2026-11-07 13:07:25,774 INFO gateway.run: ✓ api_server connected
+2026-11-07 13:07:27,407 INFO gateway.run: Gateway running with 1 platform(s)
+2026-11-07 13:07:27,486 INFO gateway.run: Channel directory built: 0 target(s)
+2026-11-07 13:07:29,542 INFO gateway.run: Model context warmed: anthropic/claude-opus-4.6 -> 1000000 tokens (detected)
+2026-11-07 13:07:29,543 INFO gateway.run: Turn machinery warmed in 4.0s (20 tool schema(s) materialized)
+2026-11-07 13:07:29,596 INFO gateway.run: Press Ctrl+C to stop
+2026-11-07 13:07:29,613 INFO gateway.run: kanban dispatcher: holding singleton dispatcher lock (/opt/data/kanban/.dispatcher.lock)
+2026-11-07 13:07:29,614 INFO gateway.run: kanban dispatcher: kanban.max_in_progress unset; using memory-derived default max_in_progress=7 (set kanban.max_in_progress in config.yaml to override)
+2026-11-07 13:07:29,672 INFO gateway.run: Cron scheduler will tick 1 profile(s): ['default']
+2026-11-07 13:07:29,725 INFO gateway.run: Gateway housekeeping started (interval=60s)
+2026-11-07 13:07:35,174 INFO gateway.run: kanban dispatcher: embedded in gateway (interval=60.0s)
+2026-11-08 20:42:57,030 INFO gateway.control_socket: Gateway control socket listening at /opt/data/gateway.sock
+2026-11-08 20:43:06,428 WARNING gateway.lifecycle_ledger: Previous gateway life (pid=182, started_at=2026-11-07T13:07:23.456191+00:00) exited UNCLEANLY (no exit path ran — SIGKILL / OOM / VM death, or a process kill issued by the agent or one of its descendants, e.g. a pkill/taskkill of the host interpreter image; see #113667). last_heartbeat_at=2026-11-07T13:33:20.090726+00:00 last_mem={'rss_kib': 259372, 'mem_total_kib': 3990096, 'mem_available_kib': 1462596, 'swap_used_kib': 239520} suspected_oom=False
+2026-11-08 20:43:11,081 INFO gateway.run: Starting Hermes Gateway...
+2026-11-08 20:43:11,085 INFO gateway.run: Session storage: /opt/data/sessions
+2026-11-08 20:43:11,203 INFO gateway.run: Agent budget: max_iterations=500 (agent.max_turns from config.yaml, else the HERMES_MAX_ITERATIONS bridge)
+2026-11-08 20:43:11,204 INFO gateway.run: Secret redaction: ENABLED (tool output, logs, and chat responses are scrubbed before delivery)
+2026-11-08 20:43:16,360 INFO gateway.run: Connecting to api_server...
+2026-11-08 20:43:16,379 INFO gateway.platforms.api_server: [Api_Server] API server listening on http://127.0.0.1:8642 (model: hermes-agent)
+2026-11-08 20:43:16,654 INFO gateway.run: ✓ api_server connected
+2026-11-08 20:43:18,039 INFO gateway.run: Gateway running with 1 platform(s)
+2026-11-08 20:43:18,543 INFO gateway.run: Channel directory built: 0 target(s)
+2026-11-08 20:43:33,166 INFO gateway.run: Model context warmed: anthropic/claude-opus-4.6 -> 1000000 tokens (detected)
+2026-11-08 20:43:33,166 INFO gateway.run: Turn machinery warmed in 16.8s (20 tool schema(s) materialized)
+2026-11-08 20:43:34,412 INFO gateway.run: Press Ctrl+C to stop
+2026-11-08 20:43:34,563 INFO gateway.run: kanban dispatcher: holding singleton dispatcher lock (/opt/data/kanban/.dispatcher.lock)
+2026-11-08 20:43:34,564 INFO gateway.run: kanban dispatcher: kanban.max_in_progress unset; using memory-derived default max_in_progress=7 (set kanban.max_in_progress in config.yaml to override)
+2026-11-08 20:43:34,677 WARNING gateway.lifecycle_ledger: Previous gateway exit was unclean, but the state.db integrity check was skipped: /opt/data/state.db is a rollback-journal store (journal_mode=delete) and a background scan would block live writes. To check it, stop the gateway and run: sqlite3 /opt/data/state.db 'PRAGMA quick_check'
+2026-11-08 20:43:34,888 INFO gateway.run: Cron scheduler will tick 1 profile(s): ['default']
+2026-11-08 20:43:35,249 INFO gateway.run: Gateway housekeeping started (interval=60s)
+2026-11-08 20:43:39,602 INFO gateway.run: kanban dispatcher: embedded in gateway (interval=60.0s)
+2026-11-08 20:46:50,052 INFO gateway.run: Received SIGTERM — initiating shutdown
+2026-11-08 20:46:50,052 WARNING gateway.run: Shutdown context: signal=SIGTERM under_systemd=no parent_pid=169 parent_name=s6-supervise loadavg_1m=5.53
+2026-11-08 20:46:50,556 INFO gateway.run: Stopping gateway...
+2026-11-08 20:46:50,903 INFO gateway.run: Shutdown phase: notify_active_sessions done at +0.35s
+2026-11-08 20:46:50,910 INFO gateway.run: Shutdown phase: drain done at +0.35s (drain took 0.01s, timed_out=False, active_at_start=0, active_now=0, cron_at_start=0, cron_now=0, api_at_start=0, api_now=0, deferred_at_start=0, deferred_now=0)
+2026-11-08 20:46:51,301 INFO gateway.run: ✓ local disconnected (0.00s)
+2026-11-08 20:46:51,313 INFO gateway.platforms.api_server: [Api_Server] API server stopped
+2026-11-08 20:46:51,313 INFO gateway.run: ✓ api_server disconnected (0.01s)
+2026-11-08 20:46:51,314 INFO gateway.run: Shutdown phase: all adapters disconnected at +0.76s
+2026-11-08 20:46:51,557 INFO gateway.run: Shutdown phase: final-cleanup tool kill done at +1.00s
+2026-11-08 20:46:51,558 INFO gateway.run: Shutdown phase: executor quiesced at +1.00s
+2026-11-08 20:46:51,563 INFO gateway.run: Shutdown phase: SessionDB close done at +1.01s
+2026-11-08 20:46:51,565 INFO gateway.run: Gateway stopped by an unexpected signal — persisting gateway_state=running so container_boot auto-starts on the next boot (issue #42675)
+2026-11-08 20:46:51,734 INFO gateway.run: Gateway stopped (total teardown 1.18s)
+2026-11-08 20:46:51,737 INFO gateway.run: Gateway housekeeping stopped
+2026-11-08 20:46:51,839 INFO gateway.run: Exiting with code 1 (signal-initiated shutdown without restart request) so the service manager can revive the gateway.
+2026-11-08 20:49:03,560 INFO gateway.control_socket: Gateway control socket listening at /opt/data/gateway.sock
+2026-11-08 20:49:08,850 INFO gateway.run: Starting Hermes Gateway...
+2026-11-08 20:49:08,854 INFO gateway.run: Session storage: /opt/data/sessions
+2026-11-08 20:49:08,916 INFO gateway.run: Agent budget: max_iterations=500 (agent.max_turns from config.yaml, else the HERMES_MAX_ITERATIONS bridge)
+2026-11-08 20:49:08,916 INFO gateway.run: Secret redaction: ENABLED (tool output, logs, and chat responses are scrubbed before delivery)
+2026-11-08 20:49:09,526 INFO gateway.run: Previous gateway exited cleanly — skipping session suspension
+2026-11-08 20:49:10,672 INFO gateway.run: Connecting to api_server...
+2026-11-08 20:49:10,725 INFO gateway.platforms.api_server: [Api_Server] API server listening on http://127.0.0.1:8642 (model: hermes-agent)
+2026-11-08 20:49:10,865 INFO gateway.run: ✓ api_server connected
+2026-11-08 20:49:14,480 INFO gateway.run: Gateway running with 1 platform(s)
+2026-11-08 20:49:14,615 INFO gateway.run: Channel directory built: 0 target(s)
+2026-11-08 20:49:20,445 INFO gateway.run: Model context warmed: anthropic/claude-opus-4.6 -> 1000000 tokens (detected)
+2026-11-08 20:49:20,445 INFO gateway.run: Turn machinery warmed in 9.8s (20 tool schema(s) materialized)
+2026-11-08 20:49:20,534 INFO gateway.run: Press Ctrl+C to stop
+2026-11-08 20:49:20,628 INFO gateway.run: kanban dispatcher: holding singleton dispatcher lock (/opt/data/kanban/.dispatcher.lock)
+2026-11-08 20:49:20,629 INFO gateway.run: kanban dispatcher: kanban.max_in_progress unset; using memory-derived default max_in_progress=7 (set kanban.max_in_progress in config.yaml to override)
+2026-11-08 20:49:20,717 INFO gateway.run: Cron scheduler will tick 1 profile(s): ['default']
+2026-11-08 20:49:20,897 INFO gateway.run: Gateway housekeeping started (interval=60s)
+2026-11-08 20:49:26,653 INFO gateway.run: kanban dispatcher: embedded in gateway (interval=60.0s)
+2026-11-08 21:17:33,576 INFO gateway.run: inbound message: platform=local user=uid:10000 chat=local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c msg='please check all project files in /opt/data and execute Pi Network transaction s' reply_to_id=None reply_to_text=''
+2026-11-08 21:26:24,196 INFO gateway.session_policy_refresh: Session local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c keeps its stored policy on resume: session_busy
+2026-11-08 21:27:42,883 INFO gateway.run: response ready: platform=local chat=local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c session=agent:main:local:dm:local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c time=609.4s api_calls=1 response=448 chars
+2026-11-08 21:27:43,237 INFO gateway.run: Transient agent failure in session local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c — persisting user message so conversation context is preserved on retry.
+2026-11-08 21:27:43,540 INFO gateway.run: Skipping duplicate user turn (message_id=97bcc4f00ccf421c9c7e140444527aa8) in session local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c
+2026-11-08 21:27:48,392 INFO gateway.platforms.base: [Local] Sending response (533 chars) to local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c
+2026-11-08 21:33:23,930 INFO gateway.run: inbound message: platform=local user=uid:10000 chat=local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c msg='please check all project files in /opt/data and execute Pi Network transaction s' reply_to_id=None reply_to_text=''
+2026-11-08 21:38:27,208 INFO gateway.run: kanban dispatcher: reaped 1 zombie worker(s), pids=[595]
+2026-11-08 21:43:56,212 INFO gateway.run: response ready: platform=local chat=local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c session=agent:main:local:dm:local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c time=632.3s api_calls=6 response=1913 chars
+2026-11-08 21:43:59,704 INFO gateway.platforms.base: [Local] Sending response (1913 chars) to local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c
+2026-11-08 21:47:16,327 INFO gateway.run: inbound message: platform=local user=uid:10000 chat=local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c msg='please perform a comprehensive project audit in /opt/data: check all source file' reply_to_id=None reply_to_text=''
+2026-11-08 21:57:23,810 INFO gateway.run: response ready: platform=local chat=local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c session=agent:main:local:dm:local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c time=607.5s api_calls=18 response=545 chars
+2026-11-08 21:57:33,204 INFO gateway.platforms.base: [Local] Sending response (545 chars) to local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c
+2026-11-08 22:07:03,904 INFO gateway.run: inbound message: platform=local user=uid:10000 chat=local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c msg='please continue the comrehensive Project Audit, execute the hackathon checklist ' reply_to_id=None reply_to_text=''
+2026-11-08 22:23:17,098 INFO gateway.run: Watch pattern notification — injecting for local chat=local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c thread=None
+2026-11-08 22:23:50,442 INFO gateway.run: Watch pattern notification — injecting for local chat=local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c thread=None
+2026-11-08 22:25:23,964 INFO gateway.run: Watch pattern notification — injecting for local chat=local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c thread=None
+2026-11-08 23:55:26,447 INFO gateway.run: response ready: platform=local chat=local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c session=agent:main:local:dm:local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c time=6502.5s api_calls=95 response=3437 chars
+2026-11-08 23:55:50,806 INFO gateway.platforms.base: [Local] Sending response (3437 chars) to local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c
+2026-11-08 23:56:11,165 INFO gateway.run: inbound message: platform=local user=uid:10000 chat=local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c msg='[IMPORTANT: 3 background process results arrived while this session was busy. Tr' reply_to_id=None reply_to_text=''
+2026-11-09 00:00:04,544 INFO gateway.run: response ready: platform=local chat=local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c session=agent:main:local:dm:local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c time=233.4s api_calls=8 response=362 chars
+2026-11-09 00:00:22,433 INFO gateway.platforms.base: [Local] Sending response (362 chars) to local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c
+2026-11-09 01:52:48,612 CRITICAL gateway.shutdown_watchdog: Gateway event loop missed 3 consecutive liveness probes; dumping all thread stacks and exiting with code 75 so the service supervisor can restart it.
+2026-11-09 02:10:02,044 INFO gateway.control_socket: Gateway control socket listening at /opt/data/gateway.sock
+2026-11-09 02:10:28,203 INFO gateway.run: Starting Hermes Gateway...
+2026-11-09 02:10:28,210 INFO gateway.run: Session storage: /opt/data/sessions
+2026-11-09 02:10:28,403 INFO gateway.run: Agent budget: max_iterations=500 (agent.max_turns from config.yaml, else the HERMES_MAX_ITERATIONS bridge)
+2026-11-09 02:10:28,403 INFO gateway.run: Secret redaction: ENABLED (tool output, logs, and chat responses are scrubbed before delivery)
+2026-11-09 02:10:46,890 INFO gateway.run: Connecting to api_server...
+2026-11-09 02:10:47,345 INFO gateway.platforms.api_server: [Api_Server] API server listening on http://127.0.0.1:8642 (model: hermes-agent)
+2026-11-09 02:10:48,046 INFO gateway.run: ✓ api_server connected
+2026-11-09 02:10:52,512 INFO gateway.run: Gateway running with 1 platform(s)
+2026-11-09 02:10:53,084 INFO gateway.run: Channel directory built: 0 target(s)
+2026-11-09 02:11:14,445 WARNING gateway.run: Turn-machinery warm-up still running after 20s; opening inbound gate anyway — the first turn may see lazily initialized machinery (#99373). Warm-up continues in the background.
+2026-11-09 02:11:15,447 INFO gateway.run: Press Ctrl+C to stop
+2026-11-09 02:11:17,827 INFO gateway.run: kanban dispatcher: holding singleton dispatcher lock (/opt/data/kanban/.dispatcher.lock)
+2026-11-09 02:11:17,828 INFO gateway.run: kanban dispatcher: kanban.max_in_progress unset; using memory-derived default max_in_progress=7 (set kanban.max_in_progress in config.yaml to override)
+2026-11-09 02:11:17,992 INFO gateway.run: Cron scheduler will tick 1 profile(s): ['default']
+2026-11-09 02:11:18,726 INFO gateway.run: Gateway housekeeping started (interval=60s)
+2026-11-09 02:11:23,006 INFO gateway.run: kanban dispatcher: embedded in gateway (interval=60.0s)
+2026-11-09 02:11:32,389 INFO gateway.run: Model context warmed: upstage/solar-mini4:free -> 524288 tokens (detected)
+2026-11-09 02:11:32,390 INFO gateway.run: Turn machinery warmed in 45.5s (21 tool schema(s) materialized)

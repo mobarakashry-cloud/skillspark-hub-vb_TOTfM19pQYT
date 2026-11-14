@@ -1,0 +1,15 @@
+{
+  "id": "proc_787543f519e0",
+  "command": "cd /opt/data && npm run build 2>&1 | tail -40",
+  "cwd": "/opt/data",
+  "task_id": "session:agent:main:local:dm:local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "owner_task_id": "local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "session_key": "agent:main:local:dm:local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "parent_session_id": "local-66bf64166df4b200902389833d0fbc63fa3fe33768cb635759c67eab9297d66c",
+  "started_at": 1794176584.2040825,
+  "exit_code": 0,
+  "completion_reason": "exited",
+  "termination_source": "",
+  "notify_on_complete": true,
+  "output": "npm notice run my-v0-project@0.1.0 build\nnpm notice run next build\nsh: 1: next: not found\n"
+}

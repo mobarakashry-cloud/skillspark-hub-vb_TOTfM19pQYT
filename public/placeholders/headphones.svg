@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <rect width="100%" height="100%" fill="#ffffff" />
+  <g transform="translate(70,60)">
+    <rect width="460" height="280" rx="20" fill="#0b1220" opacity="0.04" />
+    <path d="M160 120c0-40 40-80 120-80s120 40 120 80v60" fill="#111827" />
+    <rect x="120" y="160" width="60" height="80" rx="12" fill="#0ea5a4" opacity="0.12" />
+    <rect x="420" y="160" width="60" height="80" rx="12" fill="#0ea5a4" opacity="0.12" />
+  </g>
+</svg>
