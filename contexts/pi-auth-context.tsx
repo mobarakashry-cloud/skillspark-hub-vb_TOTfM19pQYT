@@ -44,124 +44,84 @@ interface PiAuthContextType {
 
 const PiAuthContext = createContext<PiAuthContextType | undefined>(undefined);
 
-const loadPiSDK = (): Promise<void> => {
-  return new Promise((resolve, reject) => {
-    if (typeof window === "undefined") {
-      reject(new Error("Window is undefined"));
-      return;
-    }
-    const script = document.createElement("script");
-    if (!PI_NETWORK_CONFIG.SDK_URL) {
-      reject(new Error("SDK URL is not set"));
-      return;
-    }
-    script.src = PI_NETWORK_CONFIG.SDK_URL;
-    script.async = true;
-
-    script.onload = () => {
-      resolve();
-    };
-
-    script.onerror = () => {
-      reject(new Error("Failed to load Pi SDK script"));
-    };
-
-    document.head.appendChild(script);
-  });
-};
-
-const withTimeout = <T,>(promise: Promise<T>, ms: number, errorMessage: string): Promise<T> => {
-  return Promise.race([
-    promise,
-    new Promise<T>((_, reject) =>
-      setTimeout(() => reject(new Error(errorMessage)), ms)
-    ),
-  ]);
-};
-
 export function PiAuthProvider({ children }: { children: ReactNode }) {
-  const [isMounted, setIsMounted] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [authMessage, setAuthMessage] = useState("Initializing Pi Network...");
   const [piAccessToken, setPiAccessToken] = useState<string | null>(null);
   const [userData, setUserData] = useState<LoginDTO | null>(null);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  const activateFallbackSession = () => {
-    const mockToken = "preview_guest_token";
-    setPiAccessToken(mockToken);
-    setApiAuthToken(mockToken);
-    setUserData({
-      id: "guest-user",
-      username: "Pioneer_Preview",
-      credits_balance: 100,
-      terms_accepted: true,
-    });
-    setIsAuthenticated(true);
-  };
-
-  const initializePiAndAuthenticate = async () => {
+  const authenticateAndLogin = async () => {
     try {
-      setAuthMessage("Loading Pi Network SDK...");
-
-      if (typeof window.Pi === "undefined") {
-        await withTimeout(loadPiSDK(), 5000, "Pi SDK load timed out");
-      }
-
-      if (typeof window.Pi === "undefined") {
-        throw new Error("Pi object not available after script load");
-      }
-
       setAuthMessage("Initializing Pi Network...");
-      await withTimeout(
-        window.Pi.init({
+      if (typeof window !== "undefined" && window.Pi) {
+        await window.Pi.init({
           version: "2.0",
           sandbox: PI_NETWORK_CONFIG.SANDBOX,
-        }),
-        4000,
-        "Pi.init timed out"
-      );
+        });
 
-      setAuthMessage("Authenticating with Pi Network...");
-      const piAuthResult = await withTimeout(
-        window.Pi.authenticate(["username"]),
-        5000,
-        "Pi authentication timed out"
-      );
-
-      setAuthMessage("Logging in to backend...");
-      const loginRes = await api.post<LoginDTO>(BACKEND_URLS.LOGIN, {
-        pi_auth_token: piAuthResult.accessToken,
-      });
-
-      if (piAuthResult?.accessToken) {
-        setPiAccessToken(piAuthResult.accessToken);
-        setApiAuthToken(piAuthResult.accessToken);
+        setAuthMessage("Authenticating with Pi Network...");
+        const piAuthResult = await window.Pi.authenticate(["username"]);
+        
+        if (piAuthResult?.accessToken) {
+          setPiAccessToken(piAuthResult.accessToken);
+          setApiAuthToken(piAuthResult.accessToken);
+          
+          setAuthMessage("Logging in to backend...");
+          try {
+            const loginRes = await api.post<LoginDTO>(BACKEND_URLS.LOGIN, {
+              pi_auth_token: piAuthResult.accessToken,
+            });
+            setUserData(loginRes.data);
+          } catch (e) {
+            // Fallback user data if backend login fails in preview
+            setUserData({
+              id: "pi-user",
+              username: piAuthResult.user?.username || "Pioneer",
+              credits_balance: 100,
+              terms_accepted: true,
+            });
+          }
+        }
+      } else {
+        // Fallback for normal browser / preview mode
+        const mockToken = "preview_guest_token";
+        setPiAccessToken(mockToken);
+        setApiAuthToken(mockToken);
+        setUserData({
+          id: "guest-user",
+          username: "Pioneer_Preview",
+          credits_balance: 100,
+          terms_accepted: true,
+        });
       }
-
-      setUserData(loginRes.data);
       setIsAuthenticated(true);
     } catch (err) {
-      console.warn("⚠️ Pi Network preview/fallback mode activated:", err);
-      activateFallbackSession();
+      console.warn("⚠️ Pi Auth fallback activated:", err);
+      // Fallback to allow app browsing even if Pi SDK auth fails/times out
+      setPiAccessToken("preview_guest_token");
+      setUserData({
+        id: "guest-user",
+        username: "Pioneer_Preview",
+        credits_balance: 100,
+        terms_accepted: true,
+      });
+      setIsAuthenticated(true);
     }
   };
 
   useEffect(() => {
-    if (isMounted) {
-      initializePiAndAuthenticate();
-    }
-  }, [isMounted]);
+    const timer = setTimeout(() => {
+      authenticateAndLogin();
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const value: PiAuthContextType = {
     isAuthenticated,
     authMessage,
     piAccessToken,
     userData,
-    reinitialize: initializePiAndAuthenticate,
+    reinitialize: authenticateAndLogin,
   };
 
   return (
