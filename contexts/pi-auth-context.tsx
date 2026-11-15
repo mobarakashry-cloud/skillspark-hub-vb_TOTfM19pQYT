@@ -64,8 +64,11 @@ const activateFallbackSession = () => {
     terms_accepted: true,
   });
   setIsAuthenticated(true);
+  // Preview/guest fallback is an EXPECTED, non-error state (e.g. running in a
+  // non-Pi browser). Keep the message neutral so the AuthLoadingScreen does
+  // NOT show the red "failed" banner — the user simply browses as a guest.
   setAuthMessage(
-    "Failed to complete Pi authentication. Showing preview mode. Please try again.",
+    "Preview mode is active. Pi Network authentication is not required in this browser.",
   );
 };
 
@@ -93,6 +96,9 @@ const authenticateAndLogin = async (): Promise<void> => {
       await withTimeout(
         window.Pi.init({
           version: "2.0",
+          // Production: sandbox = false (non-sandbox/mainnet mode). This env
+          // points at the production Pi SDK and production backend
+          // (piappengine.com), so sandbox must be off.
           sandbox: PI_NETWORK_CONFIG.SANDBOX,
         }),
         DEFAULT_REQUEST_TIMEOUT_MS,
