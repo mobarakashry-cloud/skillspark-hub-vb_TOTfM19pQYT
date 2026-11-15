@@ -37,9 +37,46 @@ const defaultHeaders: Record<string, string> = {
   "Content-Type": "application/json",
 };
 
+export const DEFAULT_REQUEST_TIMEOUT_MS = 30_000;
+
+export const withTimeout = <T>(
+  promise: Promise<T>,
+  ms: number,
+  errorMessage: string,
+): Promise<T> => {
+  return Promise.race([
+    promise,
+    new Promise<T>((_, reject) =>
+      setTimeout(() => reject(new Error(errorMessage)), ms),
+    ),
+  ]);
+};
+
+export const retryWithBackoff = async <T>(
+  fn: () => Promise<T>,
+  maxAttempts: number,
+  baseDelayMs: number,
+  maxDelayMs: number,
+  onRetry?: (attempt: number, error: unknown) => void,
+): Promise<T> => {
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      return await fn();
+    } catch (error) {
+      lastError = error;
+      if (attempt === maxAttempts) break;
+      onRetry?.(attempt, error);
+      const delay = Math.min(baseDelayMs * 2 ** (attempt - 1), maxDelayMs);
+      await new Promise<void>((resolve) => setTimeout(resolve, delay));
+    }
+  }
+  throw lastError;
+};
+
 const request = async <T = any>(
   url: string,
-  init: RequestInit = {}
+  init: RequestInit = {},
 ): Promise<FetchResponse<T>> => {
   const headers: Record<string, string> = {
     ...defaultHeaders,
@@ -47,7 +84,11 @@ const request = async <T = any>(
   };
   if (authToken) headers["Authorization"] = authToken;
 
-  const response = await fetch(url, { ...init, headers });
+  const response = await withTimeout(
+    fetch(url, { ...init, headers }),
+    DEFAULT_REQUEST_TIMEOUT_MS,
+    `Backend request to ${url} timed out after ${DEFAULT_REQUEST_TIMEOUT_MS}ms`,
+  );
 
   const contentType = response.headers.get("content-type") || "";
   const isJson = contentType.includes("application/json");
