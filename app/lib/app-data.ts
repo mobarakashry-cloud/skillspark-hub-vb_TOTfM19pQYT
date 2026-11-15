@@ -1,3 +1,15 @@
+import { ComponentType } from "react";
+import {
+  BookOpen,
+  Code,
+  Wrench,
+  Sparkles,
+  MessageCircle,
+  Users,
+  Hammer,
+  Zap,
+} from "lucide-react";
+
 // Centralized data model + app content for the SkillSpark Hub dashboard.
 // Extracted from app/page.tsx so the homepage stays a thin tab router.
 // Icon references are React components (lucide-react); the data module
