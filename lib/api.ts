@@ -37,7 +37,7 @@ const defaultHeaders: Record<string, string> = {
   "Content-Type": "application/json",
 };
 
-export const DEFAULT_REQUEST_TIMEOUT_MS = 30_000;
+export const DEFAULT_REQUEST_TIMEOUT_MS = 8_000;
 
 export const withTimeout = <T>(
   promise: Promise<T>,

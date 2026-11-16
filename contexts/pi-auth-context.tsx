@@ -114,7 +114,11 @@ const authenticateAndLogin = async (): Promise<void> => {
       // 1) Make sure the Pi SDK is loaded before calling Pi.init (critical
       //    fix for Pi Browser / WebView environments where setTimeout-driven
       //    timeouts can be throttled or blocked).
-      await ensurePiSdkReady();
+      await withTimeout(
+        ensurePiSdkReady(),
+        DEFAULT_REQUEST_TIMEOUT_MS,
+        "Pi SDK load timed out",
+      );
 
       // 2) Initialize Pi.
       await withTimeout(
@@ -141,19 +145,12 @@ const authenticateAndLogin = async (): Promise<void> => {
       setApiAuthToken(piAuthResult.accessToken);
 
       setAuthMessage("Logging in to backend...");
-      const loginRes = await retryWithBackoff(
-        () =>
-          api.post<LoginDTO>(BACKEND_URLS.LOGIN, {
-            pi_auth_token: piAuthResult.accessToken,
-          }),
-        3,
-        1000,
-        5000,
-        (attempt) => {
-          setAuthMessage(
-            `Logging in to backend... (attempt ${attempt + 1}/3)`,
-          );
-        },
+      const loginRes = await withTimeout(
+        api.post<LoginDTO>(BACKEND_URLS.LOGIN, {
+          pi_auth_token: piAuthResult.accessToken,
+        }),
+        DEFAULT_REQUEST_TIMEOUT_MS,
+        "Backend login timed out",
       );
 
       setUserData(loginRes.data);
