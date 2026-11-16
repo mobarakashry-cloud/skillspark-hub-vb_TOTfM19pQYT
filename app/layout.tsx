@@ -6,9 +6,8 @@ import { AppWrapper } from "@/components/app-wrapper";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Made with App Studio",
-  description: "Pi Network app",
-    generator: 'v0.app'
+  title: "SkillSpark Hub",
+  description: "Pi Network skill, earning and content creation app",
 };
 
 export default function RootLayout({
