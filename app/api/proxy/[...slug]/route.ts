@@ -13,7 +13,6 @@ export async function handler(req: NextRequest, slug: string[] | undefined) {
   const target = `${backend.replace(/\/$/, '')}${path}`
 
   const headers: Record<string, string> = {}
-  // Copy selected headers from incoming request
   req.headers.forEach((value, key) => {
     if (key.toLowerCase() === 'host') return
     headers[key] = value
@@ -26,11 +25,17 @@ export async function handler(req: NextRequest, slug: string[] | undefined) {
 
   const body = method === 'GET' || method === 'HEAD' ? undefined : await req.text()
 
+  // Timeout the upstream backend call (and abort it) so a slow/unreachable
+  // backend cannot block this proxy handler forever.
+  const upstreamController = new AbortController()
+  const upstreamTimeout = setTimeout(() => upstreamController.abort(), 30_000)
   const res = await fetch(target, {
     method,
     headers,
     body,
+    signal: upstreamController.signal,
   })
+  clearTimeout(upstreamTimeout)
 
   const respHeaders = new Headers(res.headers)
   const contentType = respHeaders.get('content-type') || ''

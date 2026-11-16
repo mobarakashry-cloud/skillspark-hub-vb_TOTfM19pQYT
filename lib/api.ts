@@ -84,36 +84,41 @@ const request = async <T = any>(
   };
   if (authToken) headers["Authorization"] = authToken;
 
-  const response = await withTimeout(
-    fetch(url, { ...init, headers }),
-    DEFAULT_REQUEST_TIMEOUT_MS,
-    `Backend request to ${url} timed out after ${DEFAULT_REQUEST_TIMEOUT_MS}ms`,
-  );
+  // Use AbortController so the fetch is actively cancelled on timeout.
+  // A plain Promise.race/setTimeout only rejects the promise and leaves the
+  // network request running (and can fail to fire if the main thread is
+  // blocked in a WebView/Pi Browser).
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), DEFAULT_REQUEST_TIMEOUT_MS);
 
-  const contentType = response.headers.get("content-type") || "";
-  const isJson = contentType.includes("application/json");
-  const data =
-    response.status === 204
-      ? null
-      : isJson
-      ? await response.json()
-      : await response.text();
+  try {
+    const response = await fetch(url, { ...init, headers, signal: controller.signal });
 
-  if (!response.ok) {
-    const error = new Error(
-      response.statusText || "Request failed"
-    ) as ApiError<T>;
-    error.status = response.status;
-    error.data = data as T;
-    throw error;
+    const contentType = response.headers.get("content-type") || "";
+    const isJson = contentType.includes("application/json");
+    const data =
+      response.status === 204
+        ? null
+        : isJson
+        ? await response.json()
+        : await response.text();
+
+    if (!response.ok) {
+      const error = new Error(response.statusText || "Request failed") as ApiError<T>;
+      error.status = response.status;
+      error.data = data as T;
+      throw error;
+    }
+
+    return {
+      data: data as T,
+      status: response.status,
+      statusText: response.statusText,
+      headers: response.headers,
+    };
+  } finally {
+    clearTimeout(timeoutId);
   }
-
-  return {
-    data: data as T,
-    status: response.status,
-    statusText: response.statusText,
-    headers: response.headers,
-  };
 };
 
 export const api = {

@@ -72,6 +72,38 @@ const activateFallbackSession = () => {
   );
 };
 
+// Loads the Pi SDK script and resolves once it is ready (or rejects).
+const ensurePiSdkReady = (): Promise<void> => {
+  return new Promise<void>((resolve, reject) => {
+    // Already loaded (e.g. Pi Browser auto-injects it).
+    if (typeof window !== "undefined" && window.Pi) {
+      resolve();
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = PI_NETWORK_CONFIG.SDK_URL;
+    script.async = true;
+
+    const onLoad = () => {
+      if (script.parentNode) {
+        document.head.removeChild(script);
+      }
+      resolve();
+    };
+    const onError = () => {
+      if (script.parentNode) {
+        document.head.removeChild(script);
+      }
+      reject(new Error("Failed to load Pi SDK script"));
+    };
+
+    script.onload = onLoad;
+    script.onerror = onError;
+    document.head.appendChild(script);
+  });
+};
+
 const authenticateAndLogin = async (): Promise<void> => {
   setAuthMessage("Initializing Pi Network...");
   setPiAccessToken(null);
@@ -79,26 +111,15 @@ const authenticateAndLogin = async (): Promise<void> => {
 
   try {
     if (typeof window !== "undefined" && window.Pi) {
-      // Load the Pi SDK only if not already present
-      if (typeof window.Pi === "undefined") {
-        const sdkScript = document.createElement("script");
-        sdkScript.src = PI_NETWORK_CONFIG.SDK_URL;
-        sdkScript.async = true;
-        sdkScript.onload = () => {
-          // SDK loaded; window.Pi should now be defined
-        };
-        sdkScript.onerror = () => {
-          console.warn("⚠️ Failed to load Pi SDK script");
-        };
-        document.head.appendChild(sdkScript);
-      }
+      // 1) Make sure the Pi SDK is loaded before calling Pi.init (critical
+      //    fix for Pi Browser / WebView environments where setTimeout-driven
+      //    timeouts can be throttled or blocked).
+      await ensurePiSdkReady();
 
+      // 2) Initialize Pi.
       await withTimeout(
         window.Pi.init({
           version: "2.0",
-          // Production: sandbox = false (non-sandbox/mainnet mode). This env
-          // points at the production Pi SDK and production backend
-          // (piappengine.com), so sandbox must be off.
           sandbox: PI_NETWORK_CONFIG.SANDBOX,
         }),
         DEFAULT_REQUEST_TIMEOUT_MS,
